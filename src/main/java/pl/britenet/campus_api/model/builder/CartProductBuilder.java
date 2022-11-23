@@ -1,0 +1,27 @@
+package pl.britenet.campus_api.model.builder;
+
+import pl.britenet.campus_api.model.CartProduct;
+
+public class CartProductBuilder {
+
+    private final CartProduct cartProduct;
+
+    public CartProductBuilder(){ this.cartProduct = new CartProduct(); }
+
+    public CartProductBuilder setIdCartProduct(int id){
+        this.cartProduct.setIdCartProduct(id);
+        return this;
+    }
+    public CartProductBuilder setIdProduct(int id){
+        this.cartProduct.setIdProduct(id);
+        return this;
+    }
+    public CartProductBuilder setHowMany(int howMany){
+        this.cartProduct.setHowMany(howMany);
+        return this;
+    }
+    public CartProductBuilder setPrice(double price){
+        this.cartProduct.setPrice(price);
+        return this;
+    }
+}

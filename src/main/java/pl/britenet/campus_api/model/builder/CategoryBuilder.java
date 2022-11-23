@@ -20,15 +20,20 @@ public class CategoryBuilder {
         return this;
     }
 
+    public CategoryBuilder setDescription(String description){
+        this.category.setDescription(description);
+        return this;
+    }
+
     public Category getCategory() {
         return this.category;
     }
 }
 
-//baza danych
-//diagramy
-//buildery i klasy do builderow
-//const trait check w mysql - dowiedzieć sie i zrobić kilka
-//zagrac w bilarda
+// v baza danych
+//v diagramy
+// buildery i klasy do builderow
+// const trait check w mysql - dowiedzieć sie i zrobić kilka
+// zagrac w bilarda
 
-//spotkanie o 10
+// spotkanie o 10

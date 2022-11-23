@@ -4,9 +4,24 @@ public class Product {
     private  String name;
     private int id;
     private double price;
-    private int categoryId;
+    private int idCategory;
+    private String producer;
+    private int howMany;
 
-    public Product(){}
+    public String getProducer() {
+        return producer;
+    }
+    public void setProducer(String producer) {
+        this.producer = producer;
+    }
+
+    public int getHowMany() {
+        return howMany;
+    }
+
+    public void setHowMany(int howMany) {
+        this.howMany = howMany;
+    }
 
     public int getId() {
         return id;
@@ -19,7 +34,6 @@ public class Product {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -32,15 +46,13 @@ public class Product {
         this.price = price;
     }
 
-    public int getCategoryId() {
-        return categoryId;
+    public int getIdCategory() {
+        return idCategory;
+    }
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
-
-
-
+    public Product(){}
 
 }
