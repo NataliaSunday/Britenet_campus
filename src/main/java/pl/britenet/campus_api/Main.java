@@ -12,7 +12,7 @@ public class Main {
     public static boolean isRunning = true;
     public static void main(String[] args) {
         CommandService commandService = new CommandService();
-        commandService.registerCommand(new HelpCommand());
+        commandService.registerCommand(new HelpCommand(commandService.getCommandList()));
         commandService.registerCommand(new ExitCommand());
 
         Scanner scanner = new Scanner(System.in);

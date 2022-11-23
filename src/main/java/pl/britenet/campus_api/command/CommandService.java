@@ -21,4 +21,8 @@ public class CommandService {
                 .filter( command -> command.getName().equals(name) )
                 .findFirst();
     }
+
+    public List<Command> getCommandList() {
+        return commandList;
+    }
 }
