@@ -1,12 +1,16 @@
 package pl.britenet.campus_api.model.builder;
 
 import pl.britenet.campus_api.model.Cart;
+import pl.britenet.campus_api.model.Category;
 
 public class CartBuilder {
 
     private final Cart cart;
 
     public CartBuilder(){ this.cart = new Cart();}
+    public Cart getCart() {
+        return this.cart;
+    }
 
     public CartBuilder setIdCart(int id){
         this.cart.setIdCart(id);
@@ -24,6 +28,5 @@ public class CartBuilder {
         this.cart.setTotalPrice(totalPrice);
         return this;
     }
-
 
 }

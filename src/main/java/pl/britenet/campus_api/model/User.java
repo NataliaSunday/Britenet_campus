@@ -46,6 +46,14 @@ public class User {
         return nickname;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void setNickname(String nickname) {
         this.nickname = nickname;
     }
@@ -95,12 +103,15 @@ public class User {
     private int idCart;
     private String name;
     private String surname;
+
+    private String password;
     private String nickname;
     private String country;
     private String city;
     private String homeNumber;
     private String zipCode;
     private String eMail;
+
 
     public User(){};
 }

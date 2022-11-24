@@ -27,7 +27,7 @@ public class CategoryBuilder {
 
     public Category getCategory() {
         return this.category;
-    }
+}
 }
 
 // v baza danych

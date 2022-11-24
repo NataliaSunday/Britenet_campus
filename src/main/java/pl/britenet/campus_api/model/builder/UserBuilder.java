@@ -33,6 +33,10 @@ public class UserBuilder {
         return this;
     }
 
+    public UserBuilder setPassword(String password){
+        this.user.setPassword(password);
+        return this;
+    }
     public UserBuilder setNickname(String nickname) {
         this.user.setNickname(nickname);
         return this;

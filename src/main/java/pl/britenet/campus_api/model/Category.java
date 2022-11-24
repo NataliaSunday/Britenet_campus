@@ -30,4 +30,15 @@ public final class Category { //nie mozna rozszerzac w przypadku klasy - final
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Category\n" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", description='" + description + '\'';
+    }
+    public  String toStringName(){
+        return "Category\n" +
+        "name='" + name;
+    }
 }

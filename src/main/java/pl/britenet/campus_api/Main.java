@@ -1,9 +1,8 @@
 package pl.britenet.campus_api;
 
-import pl.britenet.campus_api.command.Command;
-import pl.britenet.campus_api.command.CommandService;
-import pl.britenet.campus_api.command.ExitCommand;
-import pl.britenet.campus_api.command.HelpCommand;
+import pl.britenet.campus_api.command.*;
+import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
+import pl.britenet.campus_api.service.CategoryService;
 
 import java.util.Optional;
 import java.util.Scanner;
@@ -11,9 +10,16 @@ import java.util.Scanner;
 public class Main {
     public static boolean isRunning = true;
     public static void main(String[] args) {
+        DatabaseService databaseService = new DatabaseService();
+        CategoryService categoryService = new CategoryService(databaseService);
         CommandService commandService = new CommandService();
         commandService.registerCommand(new HelpCommand(commandService.getCommandList()));
         commandService.registerCommand(new ExitCommand());
+        commandService.registerCommand(new GetCategoryCommand());
+        commandService.registerCommand(new GetCategoryNameCommand());
+        commandService.registerCommand(new InsertCategoryCommand());
+        commandService.registerCommand(new DelCategoryCommand());
+        commandService.registerCommand(new UpdateCategoryCommand());
 
         Scanner scanner = new Scanner(System.in);
         while(isRunning) {
