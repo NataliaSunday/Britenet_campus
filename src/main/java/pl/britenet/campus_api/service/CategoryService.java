@@ -31,7 +31,7 @@ public class CategoryService {
     };
 
 
-    public Category getCategory(int id) {
+    public Category getCategoryOne(int id) {
         String dql = String.format("SELECT * FROM category WHERE id_category=%d", id);
 
         return this.databaseService.performSQL(dql, resultSet -> {
@@ -48,8 +48,8 @@ public class CategoryService {
         });
     }
 
-    public Category getCategoryName(int id) {
-        String dql = String.format("SELECT name FROM category WHERE id_category=%d", id);
+    public Category getCategoryAll() {
+        String dql ="SELECT * FROM category";
 
         return this.databaseService.performSQL(dql, resultSet -> {
             try {
@@ -70,3 +70,4 @@ public class CategoryService {
 //jak dzial hikari sterowniki i poole
 //interfejs funkcyjny
 //spotkanie 10
+//while dodac liste

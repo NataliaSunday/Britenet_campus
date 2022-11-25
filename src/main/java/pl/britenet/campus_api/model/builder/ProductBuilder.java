@@ -9,7 +9,7 @@ public class ProductBuilder {
 
     public ProductBuilder(){ this.product = new Product(); }
 
-    public ProductBuilder  setId(int id){
+    public ProductBuilder setId(int id){
         this.product.setId(id);
         return this;
     }
@@ -23,6 +23,14 @@ public class ProductBuilder {
     }
     public ProductBuilder setProducer(String producer){
         this.product.setProducer(producer);
+        return this;
+    }
+    public  ProductBuilder setDesc(String desc){
+        this.product.setDesc(desc);
+        return  this;
+    }
+    public ProductBuilder setPrice(float price){
+        this.product.setPrice(price);
         return this;
     }
     public ProductBuilder setHowMany(int howMany){

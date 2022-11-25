@@ -5,6 +5,8 @@ public class Product {
     private int id;
     private double price;
     private int idCategory;
+
+    private  String desc;
     private String producer;
     private int howMany;
 
@@ -38,6 +40,13 @@ public class Product {
         this.name = name;
     }
 
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
     public double getPrice() {
         return price;
     }

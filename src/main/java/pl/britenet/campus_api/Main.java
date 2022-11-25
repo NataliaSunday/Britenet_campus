@@ -2,6 +2,7 @@ package pl.britenet.campus_api;
 
 import pl.britenet.campus_api.command.*;
 import pl.britenet.campus_api.command.categoryTest.*;
+import pl.britenet.campus_api.command.productTest.InsertProductCommand;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.service.CategoryService;
 
@@ -16,11 +17,14 @@ public class Main {
         CommandService commandService = new CommandService();
         commandService.registerCommand(new HelpCommand(commandService.getCommandList()));
         commandService.registerCommand(new ExitCommand());
-        commandService.registerCommand(new GetCategoryCommand());
-        commandService.registerCommand(new GetCategoryNameCommand());
+
+        commandService.registerCommand(new GetCategoryAllCommand());
+        commandService.registerCommand(new GetCategoryOneCommand());
         commandService.registerCommand(new InsertCategoryCommand());
         commandService.registerCommand(new DelCategoryCommand());
         commandService.registerCommand(new UpdateCategoryCommand());
+
+        commandService.registerCommand(new InsertProductCommand());
 
         Scanner scanner = new Scanner(System.in);
         while(isRunning) {
