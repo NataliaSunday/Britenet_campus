@@ -1,6 +1,7 @@
 package pl.britenet.campus_api;
 
 import pl.britenet.campus_api.command.*;
+import pl.britenet.campus_api.command.categoryTest.*;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.service.CategoryService;
 

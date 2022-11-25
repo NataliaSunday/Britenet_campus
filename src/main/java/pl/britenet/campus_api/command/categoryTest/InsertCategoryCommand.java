@@ -1,12 +1,14 @@
-package pl.britenet.campus_api.command;
+package pl.britenet.campus_api.command.categoryTest;
 
+import pl.britenet.campus_api.command.Command;
+import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.Category;
 import pl.britenet.campus_api.service.CategoryService;
 
 import java.util.Scanner;
 
-public class InsertCategoryCommand extends Command{
+public class InsertCategoryCommand extends Command {
 
     public InsertCategoryCommand() { super(Constants.COMMAND_INSERT_CATEGORY); }
 
