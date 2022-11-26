@@ -2,7 +2,7 @@ package pl.britenet.campus_api;
 
 import pl.britenet.campus_api.command.*;
 import pl.britenet.campus_api.command.categoryTest.*;
-import pl.britenet.campus_api.command.productTest.InsertProductCommand;
+import pl.britenet.campus_api.command.productTest.*;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.service.CategoryService;
 
@@ -25,6 +25,10 @@ public class Main {
         commandService.registerCommand(new UpdateCategoryCommand());
 
         commandService.registerCommand(new InsertProductCommand());
+        commandService.registerCommand(new DelProductCommand());
+        commandService.registerCommand(new UpdateProductCommand());
+        commandService.registerCommand(new GetProductAllCommand());
+        commandService.registerCommand(new GetProductOneCommand());
 
         Scanner scanner = new Scanner(System.in);
         while(isRunning) {

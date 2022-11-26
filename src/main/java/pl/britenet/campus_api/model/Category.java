@@ -37,8 +37,4 @@ public final class Category { //nie mozna rozszerzac w przypadku klasy - final
                 ", id=" + id +
                 ", description='" + description + '\'';
     }
-    public  String toStringName(){
-        return "Category\n" +
-        "name='" + name;
-    }
 }

@@ -14,6 +14,6 @@ public class GetCategoryAllCommand extends Command {
 
         DatabaseService databaseService = new DatabaseService();
         CategoryService categoryService = new CategoryService(databaseService);
-        System.out.println("Category: \n" + categoryService.getCategoryAll().toString());
+        System.out.println("Product: \n" + categoryService.getCategoryAll().toString());
     }
 }

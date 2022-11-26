@@ -18,7 +18,7 @@ public class GetCategoryOneCommand extends Command {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Category Id: ");
         int categoryId = scanner.nextInt();
-        System.out.println("Category Id: " + categoryId + "\n" + categoryService.getCategoryOne(categoryId).toStringName());
+        System.out.println("Category Id: " + categoryId + "\n" + categoryService.getCategoryOne(categoryId).toString());
     }
 
 }

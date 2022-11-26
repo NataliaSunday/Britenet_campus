@@ -2,6 +2,8 @@ package pl.britenet.campus_api.model.builder;
 
 import pl.britenet.campus_api.model.Product;
 
+
+
 public class ProductBuilder {
 
     private final Product product;
@@ -29,7 +31,7 @@ public class ProductBuilder {
         this.product.setDesc(desc);
         return  this;
     }
-    public ProductBuilder setPrice(float price){
+    public ProductBuilder setPrice(double price){
         this.product.setPrice(price);
         return this;
     }

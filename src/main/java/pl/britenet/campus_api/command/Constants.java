@@ -16,4 +16,10 @@ public class Constants {
 
 
     public static final String COMMAND_INSERT_PRODUCT = "insert_product";
+    public static final String COMMAND_DEL_PRODUCT = "delete_product";
+    public static final String COMMAND_UPDATE_PRODUCT = "update_product";
+    public static  final String COMMAND_GET_PRODUCT_ALL = "get_product_all";
+    public  static final String COMMAND_GET_PRODUCT_ONE = "get_product_one";
+
+
 }

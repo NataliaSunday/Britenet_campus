@@ -1,6 +1,7 @@
 package pl.britenet.campus_api.model;
-
+import java.math.BigDecimal;
 public class Product {
+
     private  String name;
     private int id;
     private double price;
@@ -63,5 +64,18 @@ public class Product {
     }
 
     public Product(){}
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                ", price=" + price +
+                ", idCategory=" + idCategory +
+                ", desc='" + desc + '\'' +
+                ", producer='" + producer + '\'' +
+                ", howMany=" + howMany +
+                '}';
+    }
 
 }
