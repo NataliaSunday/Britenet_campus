@@ -39,7 +39,7 @@ public class ProductService {
     }
 
     public Product getProductOne(int id) {
-        String dql =String.format("SELECT * FROM product where id_product = %d", id);
+        String dql = String.format("SELECT * FROM product where id_product = %d", id);
         return this.databaseService.performSQL(dql, resultSet -> {
             try {
                 if(resultSet.next()) {

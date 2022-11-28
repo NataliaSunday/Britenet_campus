@@ -16,8 +16,8 @@ public class CartBuilder {
         this.cart.setIdCart(id);
         return this;
     }
-    public CartBuilder setIdCartProduct(int id){
-        this.cart.setIdCartProduct(id);
+    public CartBuilder setIdUser(int id){
+        this.cart.setIdUser(id);
         return this;
     }
     public CartBuilder setDiscount(double discount){

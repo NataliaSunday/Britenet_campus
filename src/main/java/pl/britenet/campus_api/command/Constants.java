@@ -40,6 +40,12 @@ public class Constants {
 
 
 
+    public static final String COMMAND_GET_CART_PRODUCT_ALL = "get_cart_product_all";
+    public static final String COMMAND_GET_CART_PRODUCT_ONE= "get_cart_product_one";
+    public static final String COMMAND_INSERT_CART_PRODUCT = "insert_cart_product";
+    public static final String COMMAND_UPDATE_CART_PRODUCT = "update_cart_product";
+    public static final String COMMAND_DEL_CART_PRODUCT = "del_cart_product";
+
 
 
 

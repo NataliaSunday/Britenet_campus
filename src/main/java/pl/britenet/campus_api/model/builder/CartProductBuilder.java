@@ -1,10 +1,15 @@
 package pl.britenet.campus_api.model.builder;
 
 import pl.britenet.campus_api.model.CartProduct;
+import pl.britenet.campus_api.model.Product;
 
 public class CartProductBuilder {
 
     private final CartProduct cartProduct;
+
+    public CartProduct getCartProduct() {
+        return  this.cartProduct;
+    }
 
     public CartProductBuilder(){ this.cartProduct = new CartProduct(); }
 
@@ -14,6 +19,10 @@ public class CartProductBuilder {
     }
     public CartProductBuilder setIdProduct(int id){
         this.cartProduct.setIdProduct(id);
+        return this;
+    }
+    public CartProductBuilder setIdCart(int id){
+        this.cartProduct.setIdCart(id);
         return this;
     }
     public CartProductBuilder setHowMany(int howMany){

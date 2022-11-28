@@ -16,7 +16,7 @@ public class CategoryService {
     }
 
     public List<Category> getCategoryAll() {
-        String dql ="SELECT * FROM category";
+        String dql ="SELECT * FROM category;";
         return this.databaseService.performSQL(dql, resultSet -> {
             try {
                 List<Category> categoryList = new ArrayList<>();

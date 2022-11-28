@@ -19,15 +19,15 @@ public class InsertCartCommand extends Command {
         Cart cart = new Cart();
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Cart product_id: ");
-        int cartProductId = scanner.nextInt();
+        System.out.println("Cart user Id: ");
+        int cartUserId = scanner.nextInt();
         System.out.println("Discount: ");
         double cartDiscount = scanner.nextDouble();
 
         System.out.println("Total_price: ");
         double cartTotalPrice = scanner.nextDouble();
 
-        cart.setIdCartProduct(cartProductId);
+        cart.setIdUser(cartUserId);
         cart.setDiscount(cartDiscount);
         cart.setTotalPrice(cartTotalPrice);
 

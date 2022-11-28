@@ -18,6 +18,14 @@ public class CartProduct {
         this.idProduct = idProduct;
     }
 
+    public int getIdCart() {
+        return idCart;
+    }
+
+    public void setIdCart(int idCart) {
+        this.idCart = idCart;
+    }
+
     public int getHowMany() {
         return howMany;
     }
@@ -36,8 +44,20 @@ public class CartProduct {
 
     private int idCartProduct;
     private int idProduct;
+    private int idCart;
     private int howMany;
     private double price;
+
+    @Override
+    public String toString() {
+        return "CartProduct{" +
+                "idCartProduct=" + idCartProduct +
+                ", idProduct=" + idProduct +
+                ", idCart=" + idCart +
+                ", howMany=" + howMany +
+                ", price=" + price +
+                '}';
+    }
 
     public CartProduct(){};
 }

@@ -1,10 +1,9 @@
 package pl.britenet.campus_api;
 
 import pl.britenet.campus_api.command.*;
-import pl.britenet.campus_api.command.cartTest.GetCartAllCommand;
-import pl.britenet.campus_api.command.cartTest.GetCartOneCommand;
-import pl.britenet.campus_api.command.cartTest.InsertCartCommand;
+import pl.britenet.campus_api.command.cartTest.*;
 import pl.britenet.campus_api.command.categoryTest.*;
+import pl.britenet.campus_api.command.orderProductTest.*;
 import pl.britenet.campus_api.command.productTest.*;
 import pl.britenet.campus_api.command.userTest.*;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
@@ -39,12 +38,21 @@ public class Main {
         commandService.registerCommand(new GetCartAllCommand());
         commandService.registerCommand(new GetCartOneCommand());
         commandService.registerCommand(new InsertCartCommand());
+        commandService.registerCommand(new UpdateCartCommand());
+        commandService.registerCommand(new DelCartCommand());
 
         commandService.registerCommand(new GetUserAllCommand());
         commandService.registerCommand(new GetUserOneCommand());
         commandService.registerCommand(new InsertUserCommand());
         commandService.registerCommand(new UpdateUserCommand());
         commandService.registerCommand(new DelUserCommand());
+
+        commandService.registerCommand(new GetCartProductAllCommand());
+        commandService.registerCommand(new GetCartProductOneCommand());
+        commandService.registerCommand(new InsertCartProductCommand());
+        commandService.registerCommand(new UpdateCartProductCommand());
+        commandService.registerCommand(new DelCartProductCommand());
+
 
         Scanner scanner = new Scanner(System.in);
         while(isRunning) {
