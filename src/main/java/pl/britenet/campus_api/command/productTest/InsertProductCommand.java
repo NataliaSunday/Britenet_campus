@@ -32,7 +32,6 @@ public class InsertProductCommand extends Command {
         scanner.nextLine();
         String productName = scanner.nextLine();
 
-
         System.out.println("Product producer: ");
         String productProducer = scanner.nextLine();
 

@@ -3,7 +3,6 @@ package pl.britenet.campus_api.command.productTest;
 import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
-import pl.britenet.campus_api.service.CategoryService;
 import pl.britenet.campus_api.service.ProductService;
 
 import java.util.Scanner;

@@ -10,22 +10,6 @@ public class User {
         this.idUser = idUser;
     }
 
-    public int getIdOrder() {
-        return idOrder;
-    }
-
-    public void setIdOrder(int idOrder) {
-        this.idOrder = idOrder;
-    }
-
-    public int getIdCart() {
-        return idCart;
-    }
-
-    public void setIdCart(int idCart) {
-        this.idCart = idCart;
-    }
-
     public String getName() {
         return name;
     }
@@ -90,6 +74,14 @@ public class User {
         this.zipCode = zipCode;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     public String geteMail() {
         return eMail;
     }
@@ -98,20 +90,37 @@ public class User {
         this.eMail = eMail;
     }
 
+
+
     private int idUser;
-    private int idOrder;
-    private int idCart;
     private String name;
     private String surname;
-
     private String password;
     private String nickname;
     private String country;
     private String city;
     private String homeNumber;
     private String zipCode;
+    private String phoneNumber;
     private String eMail;
 
 
     public User(){};
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "idUser=" + idUser +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", country='" + country + '\'' +
+                ", city='" + city + '\'' +
+                ", homeNumber='" + homeNumber + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", eMail='" + eMail + '\'' +
+                '}';
+    }
 }

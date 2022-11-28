@@ -1,5 +1,6 @@
 package pl.britenet.campus_api.model.builder;
 
+import pl.britenet.campus_api.model.Product;
 import pl.britenet.campus_api.model.User;
 
 public class UserBuilder {
@@ -8,18 +9,12 @@ public class UserBuilder {
 
     public UserBuilder(){ this.user = new User(); };
 
+    public User getUser() {
+        return  this.user;
+    }
+
     public UserBuilder setIdUser(int idUser) {
         this.user.setIdUser(idUser);
-        return this;
-    }
-
-    public UserBuilder setIdOrder(int idOrder) {
-        this.user.setIdOrder(idOrder);
-        return this;
-    }
-
-    public UserBuilder setIdCart(int idCart) {
-        this.user.setIdCart(idCart);
         return this;
     }
 
@@ -62,6 +57,10 @@ public class UserBuilder {
         return this;
     }
 
+    public UserBuilder setPhoneNumber(String phoneNumber){
+        this.user.setPhoneNumber(phoneNumber);
+        return  this;
+    }
     public UserBuilder seteMail(String eMail) {
         this.user.seteMail(eMail);
         return this;

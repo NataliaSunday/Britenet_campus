@@ -5,6 +5,7 @@ public class Cart {
     private int idCart;
     private int idCartProduct;
     private double discount;
+
     private double totalPrice;
 
     public int getIdCart() {
@@ -40,4 +41,14 @@ public class Cart {
     }
 
     public Cart(){};
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "idCart=" + idCart +
+                ", idCartProduct=" + idCartProduct +
+                ", discount=" + discount +
+                ", totalPrice=" + totalPrice +
+                '}';
+    }
 }

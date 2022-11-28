@@ -19,7 +19,7 @@ public class UpdateProductCommand extends Command {
 
         System.out.println("Product Id: ");
         int productId = scanner.nextInt();
-        System.out.println("Chose row: ");
+        System.out.println("Chose col: ");
         scanner.nextLine();
         String productCol = scanner.nextLine();
         System.out.println("New content: ");

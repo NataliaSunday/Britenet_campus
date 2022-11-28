@@ -1,10 +1,7 @@
 package pl.britenet.campus_api.model;
 
 public final class Category { //nie mozna rozszerzac w przypadku klasy - final
-    private  String name;
-    private int id;
 
-    private String description;
 
     public Category(){} //konstruktor
 
@@ -29,6 +26,10 @@ public final class Category { //nie mozna rozszerzac w przypadku klasy - final
     public void setDescription(String description) {
         this.description = description;
     }
+
+    private  String name;
+    private int id;
+    private String description;
 
     @Override
     public String toString() {

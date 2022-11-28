@@ -9,6 +9,9 @@ public class CategoryBuilder {
     public CategoryBuilder() {
         this.category = new Category();
     }
+    public Category getCategory() {
+        return this.category;
+    }
 
     public CategoryBuilder setId(int id){
         this.category.setId(id);
@@ -25,9 +28,7 @@ public class CategoryBuilder {
         return this;
     }
 
-    public Category getCategory() {
-        return this.category;
-}
+
 }
 
 // v baza danych
