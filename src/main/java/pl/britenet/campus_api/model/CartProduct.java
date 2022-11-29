@@ -50,13 +50,13 @@ public class CartProduct {
 
     @Override
     public String toString() {
-        return "CartProduct{" +
-                "idCartProduct=" + idCartProduct +
-                ", idProduct=" + idProduct +
-                ", idCart=" + idCart +
-                ", howMany=" + howMany +
-                ", price=" + price +
-                '}';
+        return 
+                "\nidCartProduct=" + idCartProduct +
+                "\nidProduct=" + idProduct +
+                "\nidCart=" + idCart +
+                "\nhowMany=" + howMany +
+                "\nprice=" + price +
+                "\n";
     }
 
     public CartProduct(){};

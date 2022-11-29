@@ -18,6 +18,6 @@ public class GetUserOneCommand extends Command {
         Scanner scanner = new Scanner(System.in);
         System.out.println("User Id: ");
         int userId = scanner.nextInt();
-        System.out.println("User Id: " + userId + "\n" + userService.getUserAll().toString());
+        System.out.println("User Id: " + userId + "\n" + userService.getUserOne(userId).toString());
     }
 }

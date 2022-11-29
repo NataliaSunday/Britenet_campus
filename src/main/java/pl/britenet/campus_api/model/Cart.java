@@ -36,19 +36,18 @@ public class Cart {
 
     @Override
     public String toString() {
-        return "Cart{" +
-                "idCart=" + idCart +
-                ", idUser=" + idUser +
-                ", discount=" + discount +
-                ", totalPrice=" + totalPrice +
-                '}';
+        return
+                "\nidCart =" + idCart +
+                "\nidUser=" + idUser +
+                "\ndiscount=" + discount +
+                "\ntotalPrice=" + totalPrice +
+                "\n";
     }
 
     private int idCart;
     private int idUser;
     private double discount;
     private double totalPrice;
-
 
     public Cart(){};
 

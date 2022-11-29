@@ -57,6 +57,17 @@ public class Opinion {
     private String opinionContent;
     private int rating;
 
+    @Override
+    public String toString() {
+        return
+                "\nidOpinion=" + idOpinion +
+                "\nidProduct=" + idProduct +
+                "\nidUser=" + idUser +
+                "\nopinionDate='" + opinionDate +
+                "\nopinionContent='" + opinionContent +
+                "\nrating=" + rating ;
+    }
+
     public Opinion(){};
 
 }

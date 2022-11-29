@@ -1,10 +1,14 @@
 package pl.britenet.campus_api.model.builder;
 
+import pl.britenet.campus_api.model.Category;
 import pl.britenet.campus_api.model.OrderProduct;
 
 public class OrderProductBuilder {
 
     private final OrderProduct orderProduct;
+    public OrderProduct getOrderProduct() {
+        return this.orderProduct;
+    }
 
     public OrderProductBuilder() { this.orderProduct = new OrderProduct(); }
 
@@ -14,6 +18,10 @@ public class OrderProductBuilder {
     }
     public OrderProductBuilder setIdProduct(int id){
         this.orderProduct.setIdProduct(id);
+        return this;
+    }
+    public OrderProductBuilder setIdOrder(int id){
+        this.orderProduct.setIdOrder(id);
         return this;
     }
     public OrderProductBuilder setHowMany(int howMany){

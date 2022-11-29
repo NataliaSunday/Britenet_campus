@@ -47,9 +47,22 @@ public class Constants {
     public static final String COMMAND_DEL_CART_PRODUCT = "del_cart_product";
 
 
+    public static final String COMMAND_GET_OPINIONS_ALL = "get_opinions_all";
+    public static final String COMMAND_GET_OPINIONS_ONE = "get_opinions_one";
+    public static final String COMMAND_INSERT_OPINIONS = "insert_opinions";
+    public static final String COMMAND_UPDATE_OPINIONS = "update_opinions";
+    public static final String COMMAND_DEL_OPINIONS = "delete_opinions";
 
 
+    public static final  String COMMAND_GET_ORDER_ALL = "get_order_all";
+    public static final  String COMMAND_GET_ORDER_ONE = "get_order_one";
+    public static final  String COMMAND_INSERT_ORDER = "insert_order";
+    public static final  String COMMAND_UPDATE_ORDER = "update_order";
+    public static final  String COMMAND_DEL_ORDER = "delete_order";
 
-
-
+    public static final String COMMAND_GET_PRODUCT_ORDER_ALL = "get_order_product_all";
+    public static final String COMMAND_GET_PRODUCT_ORDER_ONE = "get_order_product_one";
+    public static final String COMMAND_INSERT_PRODUCT_ORDER = "insert_order_product";
+    public static final String COMMAND_UPDATE_PRODUCT_ORDER = "update_order_product";
+    public static final String COMMAND_DEL_PRODUCT_ORDER = "delete_order_product";
 }

@@ -33,9 +33,9 @@ public final class Category { //nie mozna rozszerzac w przypadku klasy - final
 
     @Override
     public String toString() {
-        return "Category\n" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", description='" + description + '\'';
+        return
+                "\nname='" + name +
+                "\nid=" + id +
+                "\ndescription='" + description;
     }
 }

@@ -3,7 +3,9 @@ package pl.britenet.campus_api;
 import pl.britenet.campus_api.command.*;
 import pl.britenet.campus_api.command.cartTest.*;
 import pl.britenet.campus_api.command.categoryTest.*;
+import pl.britenet.campus_api.command.opinionsTest.*;
 import pl.britenet.campus_api.command.orderProductTest.*;
+import pl.britenet.campus_api.command.orderTest.*;
 import pl.britenet.campus_api.command.productTest.*;
 import pl.britenet.campus_api.command.userTest.*;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
@@ -53,14 +55,29 @@ public class Main {
         commandService.registerCommand(new UpdateCartProductCommand());
         commandService.registerCommand(new DelCartProductCommand());
 
+        commandService.registerCommand(new GetOpinionsAllCommand());
+        commandService.registerCommand(new GetOpinionsOneCommand());
+        commandService.registerCommand(new InsertOpinionsCommand());
+        commandService.registerCommand(new UpdateOpinionsCommand());
+        commandService.registerCommand(new DelOpinionsCommand());
+
+        commandService.registerCommand(new GetOrderAllCommand());
+        commandService.registerCommand(new GetOrderOneCommand());
+        commandService.registerCommand(new InsertOrderCommand());
+        commandService.registerCommand(new UpdateOrderCommand());
+        commandService.registerCommand(new DelOrderCommand());
+
 
         Scanner scanner = new Scanner(System.in);
+        System.out.println("App start - the best online shop ever \n Chose action or put help into the console.");
         while(isRunning) {
+
             String commandName = scanner.nextLine();
             Optional<Command> optionalCommand = commandService.findCommandByName((commandName));
 
             if(optionalCommand.isPresent()){
                 optionalCommand.get().execute();
+                System.out.println("\nPut new command.\n");
             }else{
                 System.out.println("Command does not exist");
             }

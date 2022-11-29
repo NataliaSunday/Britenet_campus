@@ -3,7 +3,7 @@ package pl.britenet.campus_api.model;
 public class Order {
 
     private int idOrder;
-    private int idOrderProduct;
+    private int idUser;
     private String orderDate;
     private String country;
     private String city;
@@ -14,7 +14,21 @@ public class Order {
     private double totalPrice;
     private double discount;
 
-    public Order(){};
+    @Override
+    public String toString() {
+        return
+                "\nidOrder=" + idOrder +
+                "\nidUser=" + idUser +
+                "\norderDate='" + orderDate +
+                "\ncountry='" + country +
+                "\ncity='" + city +
+                "\nhomeNumber='" + homeNumber +
+                "\nzipCode='" + zipCode +
+                "\nphoneNumber='" + phoneNumber +
+                "\neMail='" + eMail +
+                "\ntotalPrice=" + totalPrice +
+                "\ndiscount=" + discount;
+    }
 
     public int getIdOrder() {
         return idOrder;
@@ -24,12 +38,12 @@ public class Order {
         this.idOrder = idOrder;
     }
 
-    public int getIdOrderProduct() {
-        return idOrderProduct;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setIdOrderProduct(int idOrderProduct) {
-        this.idOrderProduct = idOrderProduct;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getOrderDate() {
@@ -103,6 +117,10 @@ public class Order {
     public void setDiscount(double discount) {
         this.discount = discount;
     }
+
+    public Order(){};
+
+
 
 
 }

@@ -109,18 +109,17 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "idUser=" + idUser +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", password='" + password + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", country='" + country + '\'' +
-                ", city='" + city + '\'' +
-                ", homeNumber='" + homeNumber + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", eMail='" + eMail + '\'' +
-                '}';
+        return
+                "\nidUser=" + idUser +
+                "\name='" + name +
+                "\nsurname='" + surname +
+                "\npassword='" + password +
+                "\nnickname='" + nickname +
+                "\ncountry='" + country +
+                "\ncity='" + city +
+                "\nhomeNumber='" + homeNumber +
+                "\nzipCode='" + zipCode +
+                "\nphoneNumber='" + phoneNumber +
+                "\neMail='" + eMail;
     }
 }

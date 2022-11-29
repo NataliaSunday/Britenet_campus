@@ -1,5 +1,6 @@
 package pl.britenet.campus_api.model.builder;
 
+import pl.britenet.campus_api.model.Opinion;
 import pl.britenet.campus_api.model.Order;
 
 public class OrderBuilder {
@@ -8,12 +9,14 @@ public class OrderBuilder {
 
     public OrderBuilder(){ this.order = new Order(); }
 
+    public Order getOrder() { return this.order; };
+
     public OrderBuilder setId(int id){
         this.order.setIdOrder(id);
         return this;
     }
-    public OrderBuilder setIdOrderProduct(int id){
-        this.order.setIdOrderProduct(id);
+    public OrderBuilder setIdUser(int id){
+        this.order.setIdUser(id);
         return this;
     }
     public OrderBuilder setOrderDate(String date){
@@ -40,7 +43,7 @@ public class OrderBuilder {
         this.order.setPhoneNumber(phoneNumber);
         return this;
     }
-    public OrderBuilder seteMmail(String email){
+    public OrderBuilder seteMail(String email){
         this.order.seteMail(email);
         return  this;
     }

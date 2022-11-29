@@ -67,15 +67,14 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", price=" + price +
-                ", idCategory=" + idCategory +
-                ", desc='" + desc + '\'' +
-                ", producer='" + producer + '\'' +
-                ", howMany=" + howMany +
-                '}';
+        return
+                "\nname='" + name +
+                "\nid=" + id +
+                "\nidCategory=" + idCategory +
+                "\nprice=" + price +
+                "\ndesc='" + desc +
+                "\nproducer='" + producer +
+                "\nhowMany=" + howMany ;
     }
 
 }
