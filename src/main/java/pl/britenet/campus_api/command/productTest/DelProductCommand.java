@@ -5,6 +5,7 @@ import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.service.ProductService;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DelProductCommand extends Command {
@@ -16,9 +17,16 @@ public class DelProductCommand extends Command {
         DatabaseService databaseService = new DatabaseService();
         ProductService productService = new ProductService(databaseService);
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Product Id: ");
-        int productId = scanner.nextInt();
-       productService.delProduct(productId);
-        System.out.println("Product " +productId + " deleted.");
+
+        try{
+            System.out.println("Product Id: ");
+            int productId = scanner.nextInt();
+            productService.delProduct(productId);
+            System.out.println("Product " +productId + " deleted.");
+        } catch (InputMismatchException e){
+            System.out.println("Bad type of data");
+        } catch (Exception e){
+            System.out.println("Error");
+        }
     }
 }
