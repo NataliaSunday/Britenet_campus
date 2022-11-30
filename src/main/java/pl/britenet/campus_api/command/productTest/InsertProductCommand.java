@@ -18,7 +18,6 @@ public class InsertProductCommand extends Command {
 
         DatabaseService databaseService = new DatabaseService();
         ProductService productService = new ProductService(databaseService);
-
         Product product = new Product();
         Scanner scanner = new Scanner(System.in);
 
@@ -53,8 +52,6 @@ public class InsertProductCommand extends Command {
             productService.insertProduct(product);
 
             System.out.println("Product added");
-        } catch (NullPointerException e) {
-            System.out.println("Cart with this column or Id doesn't exist");
         } catch (InputMismatchException e) {
             System.out.println("Bad type of data");
         } catch (IllegalStateException e) {

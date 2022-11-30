@@ -14,6 +14,7 @@ public class GetOpinionsAllCommand extends Command {
 
         DatabaseService databaseService = new DatabaseService();
         OpinionService opinionService = new OpinionService(databaseService);
+
         try{
             System.out.println("Opinions: \n" + opinionService.getOpinionAll().toString());
         }catch (Exception e){

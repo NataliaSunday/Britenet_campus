@@ -32,8 +32,6 @@ public class InsertCategoryCommand extends Command {
             categoryService.insertCategory(category);
 
             System.out.println("Category added");
-        } catch (NullPointerException e) {
-            System.out.println("Cart with this column or Id doesn't exist");
         } catch (InputMismatchException e) {
             System.out.println("Bad type of data");
         } catch (IllegalStateException e) {

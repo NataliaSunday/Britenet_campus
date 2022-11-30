@@ -41,9 +41,7 @@ public class InsertOrderProductCommand extends Command{
             orderProductService.insertOrderProduct(orderProduct);
 
             System.out.println("Product order added");
-        } catch (NullPointerException e) {
-            System.out.println("Cart with this column or Id doesn't exist");
-        } catch (InputMismatchException e) {
+        }catch (InputMismatchException e) {
             System.out.println("Bad type of data");
         } catch (IllegalStateException e) {
             System.out.println("SQL Error");

@@ -67,8 +67,6 @@ public class InsertUserCommand extends Command {
 
 
             System.out.println("User added");
-        } catch (NullPointerException e) {
-            System.out.println("Cart with this column or Id doesn't exist");
         } catch (InputMismatchException e) {
             System.out.println("Bad type of data");
         } catch (IllegalStateException e) {

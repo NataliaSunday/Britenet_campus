@@ -47,8 +47,6 @@ public class InsertOpinionsCommand extends Command {
 
             System.out.println("Opinion added");
 
-        } catch (NullPointerException e) {
-            System.out.println("Cart with this column or Id doesn't exist");
         } catch (InputMismatchException e) {
             System.out.println("Bad type of data");
         } catch (IllegalStateException e) {

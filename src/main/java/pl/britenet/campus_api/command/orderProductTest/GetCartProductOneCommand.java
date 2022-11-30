@@ -22,9 +22,9 @@ public class GetCartProductOneCommand extends Command {
         try{
             System.out.println("Cart products Id: ");
             int cartProductsId = scanner.nextInt();
-            System.out.println("Cart products: " + cartProductsId + "\n" + cartProductService.getCartProductOne(cartProductsId).toString());
+            System.out.println("Cart product: " + cartProductsId + "\n" + cartProductService.getCartProductOne(cartProductsId).toString());
         }catch (NullPointerException e){
-            System.out.println("Cart products with this Id doesn't exist");
+            System.out.println("Cart product with this Id doesn't exist");
         }catch (InputMismatchException e) {
             System.out.println("Bad type of data");
         }catch (Exception e){

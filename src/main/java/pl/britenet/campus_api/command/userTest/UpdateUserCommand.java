@@ -32,7 +32,7 @@ public class UpdateUserCommand extends Command {
         System.out.println("Data updated");
 
       } catch (NullPointerException e) {
-        System.out.println("Cart with this column or Id doesn't exist");
+        System.out.println("User with this column or Id doesn't exist");
       } catch (InputMismatchException e) {
         System.out.println("Bad type of data");
       } catch (Exception e) {

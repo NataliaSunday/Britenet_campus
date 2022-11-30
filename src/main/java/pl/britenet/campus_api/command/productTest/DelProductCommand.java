@@ -22,7 +22,7 @@ public class DelProductCommand extends Command {
             System.out.println("Product Id: ");
             int productId = scanner.nextInt();
             productService.delProduct(productId);
-            System.out.println("Product " +productId + " deleted.");
+            System.out.println("Product " + productId + " deleted.");
         } catch (InputMismatchException e){
             System.out.println("Bad type of data");
         } catch (Exception e){

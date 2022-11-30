@@ -36,8 +36,6 @@ public class InsertCartCommand extends Command {
             cartService.insertCart(cart);
 
             System.out.println("Cart added");
-        } catch (NullPointerException e) {
-            System.out.println("Cart with this column or Id doesn't exist");
         } catch (InputMismatchException e) {
             System.out.println("Bad type of data");
         } catch (IllegalStateException e) {

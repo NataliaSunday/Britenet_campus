@@ -26,7 +26,7 @@ public class GetProductOneCommand extends Command {
                 System.out.println("Category Id: " + productId + "\n" + productService.getProductOne(productId).toString());
             }
             catch (NullPointerException e){
-            System.out.println( "Category with this id doesn't exists");
+            System.out.println( "Product with this id doesn't exists");
             }catch (InputMismatchException e) {
                 System.out.println("Bad type of data");
             }catch (Exception e){
