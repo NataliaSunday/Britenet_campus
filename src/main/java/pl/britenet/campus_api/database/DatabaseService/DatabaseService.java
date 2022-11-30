@@ -20,7 +20,6 @@ public class DatabaseService {
              PreparedStatement statement = connection.prepareStatement(dml)) {
             statement.executeUpdate();
         }catch (SQLException e){ //error sqlexepction, error runtime
-            System.out.println("lol");
             throw new IllegalStateException(e);
         }
     }

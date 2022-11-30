@@ -83,7 +83,7 @@ public class UserService {
                 this.databaseService.performDML(dml);
             }
         else {
-            System.out.println("Col doesn't exist");
+            throw new NullPointerException();
         }
     }
 

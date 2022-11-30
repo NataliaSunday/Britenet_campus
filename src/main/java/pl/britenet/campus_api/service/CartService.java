@@ -70,7 +70,7 @@ public class CartService {
             String dml = String.format(Locale.US, "UPDATE cart SET %S = %f WHERE id_cart = %d;", col,  parseNewContent, id);
             this.databaseService.performDML(dml);
         }else {
-            System.out.println("Col doesn't exist");
+            throw new NullPointerException();
         }
     }
 

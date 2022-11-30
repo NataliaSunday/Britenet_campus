@@ -94,7 +94,7 @@ public class OrderService {
             this.databaseService.performDML(dml);
         }
         else {
-            System.out.println("Col doesn't exist");
+           throw new NullPointerException();
         }
     }
 

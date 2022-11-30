@@ -45,7 +45,6 @@ public class CategoryService {
                 }
 
             }catch (SQLException e) {
-                System.out.println("error");
                 throw new IllegalStateException(e);
             }
             return null;

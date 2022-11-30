@@ -5,6 +5,7 @@ import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.service.CategoryService;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UpdateCategoryCommand extends Command {
@@ -17,16 +18,25 @@ public class UpdateCategoryCommand extends Command {
         CategoryService categoryService = new CategoryService(databaseService);
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Category Id: ");
-        int categoryId = scanner.nextInt();
-        System.out.println("New category name: ");
-        scanner.nextLine();
-        String categoryName = scanner.nextLine();
-        System.out.println("New category description: ");
-        String categoryDesc = scanner.nextLine();
+        try {
+            System.out.println("Category Id: ");
+            int categoryId = scanner.nextInt();
+            System.out.println("New category name: ");
+            scanner.nextLine();
+            String categoryName = scanner.nextLine();
+            System.out.println("New category description: ");
+            String categoryDesc = scanner.nextLine();
 
-        categoryService.updateCategory(categoryId, categoryName, categoryDesc);
+            categoryService.updateCategory(categoryId, categoryName, categoryDesc);
 
-        System.out.println("Data updated");
+            System.out.println("Data updated");
+
+        } catch (NullPointerException e) {
+            System.out.println("Cart with this column or Id doesn't exist");
+        } catch (InputMismatchException e) {
+            System.out.println("Bad type of data");
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
     }
 }

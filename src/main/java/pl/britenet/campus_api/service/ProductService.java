@@ -80,7 +80,7 @@ public class ProductService {
            String dml = String.format(Locale.US, "UPDATE product SET %S = '%S' WHERE id_product = '%d'", col, newContent, id);
            this.databaseService.performDML(dml);
        }else {
-            System.out.println("Col doesn't exist");
+          throw new NullPointerException();
        }
     }
 

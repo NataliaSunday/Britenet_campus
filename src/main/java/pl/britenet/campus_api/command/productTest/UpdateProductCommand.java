@@ -5,6 +5,7 @@ import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.service.ProductService;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UpdateProductCommand extends Command {
@@ -17,16 +18,24 @@ public class UpdateProductCommand extends Command {
         ProductService productService = new ProductService(databaseService);
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Product Id: ");
-        int productId = scanner.nextInt();
-        System.out.println("Chose col: ");
-        scanner.nextLine();
-        String productCol = scanner.nextLine();
-        System.out.println("New content: ");
-        String newContent = scanner.nextLine();
+        try {
+            System.out.println("Product Id: ");
+            int productId = scanner.nextInt();
+            System.out.println("Chose col: ");
+            scanner.nextLine();
+            String productCol = scanner.nextLine();
+            System.out.println("New content: ");
+            String newContent = scanner.nextLine();
 
-        productService.updateProduct(productId, productCol, newContent);
+            productService.updateProduct(productId, productCol, newContent);
 
-        System.out.println("Data updated");
+            System.out.println("Data updated");
+        } catch (NullPointerException e) {
+            System.out.println("Cart with this column or Id doesn't exist");
+        } catch (InputMismatchException e) {
+            System.out.println("Bad type of data");
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
     }
 }
