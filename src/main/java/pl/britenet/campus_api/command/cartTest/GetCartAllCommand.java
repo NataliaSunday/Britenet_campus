@@ -10,10 +10,14 @@ public class GetCartAllCommand  extends Command{
     public  GetCartAllCommand() { super(Constants.COMMAND_GET_CART_ALL);}
 
     @Override
-    public void execute(){
+    public void execute() {
 
         DatabaseService databaseService = new DatabaseService();
         CartService cartService = new CartService(databaseService);
-        System.out.println("Cart: \n" + cartService.getCartAll().toString());
+        try {
+            System.out.println("Cart: \n" + cartService.getCartAll().toString());
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
     }
 }

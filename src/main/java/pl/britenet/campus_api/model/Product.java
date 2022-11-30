@@ -74,7 +74,11 @@ public class Product {
                 "\nprice=" + price +
                 "\ndesc='" + desc +
                 "\nproducer='" + producer +
-                "\nhowMany=" + howMany ;
+                "\nhowMany=" + howMany + "\n" ;
     }
 
 }
+
+//paginacja wszytskich rekorduffff  w bazie
+//obsluga beledow
+//

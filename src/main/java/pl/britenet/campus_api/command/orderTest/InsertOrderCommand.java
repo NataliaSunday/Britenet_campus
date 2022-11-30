@@ -4,10 +4,7 @@ import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.Order;
-import pl.britenet.campus_api.model.User;
 import pl.britenet.campus_api.service.OrderService;
-import pl.britenet.campus_api.service.UserService;
-
 import java.util.Scanner;
 
 public class InsertOrderCommand  extends Command {

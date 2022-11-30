@@ -15,6 +15,10 @@ public class GetProductAllCommand extends Command {
 
         DatabaseService databaseService = new DatabaseService();
         ProductService productService = new ProductService(databaseService);
-        System.out.println("Product: \n" + productService.getProductAll().toString());
+        try{
+            System.out.println("Product: \n" + productService.getProductAll().toString());
+        }catch (Exception e){
+            System.out.println("Error");
+        }
     }
 }

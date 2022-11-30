@@ -60,9 +60,9 @@ public class Constants {
     public static final  String COMMAND_UPDATE_ORDER = "update_order";
     public static final  String COMMAND_DEL_ORDER = "delete_order";
 
-    public static final String COMMAND_GET_PRODUCT_ORDER_ALL = "get_order_product_all";
-    public static final String COMMAND_GET_PRODUCT_ORDER_ONE = "get_order_product_one";
-    public static final String COMMAND_INSERT_PRODUCT_ORDER = "insert_order_product";
-    public static final String COMMAND_UPDATE_PRODUCT_ORDER = "update_order_product";
-    public static final String COMMAND_DEL_PRODUCT_ORDER = "delete_order_product";
+    public static final String COMMAND_GET_ORDER_PRODUCT_ALL = "get_order_product_all";
+    public static final String COMMAND_GET_ORDER_PRODUCT_ONE = "get_order_product_one";
+    public static final String COMMAND_INSERT_ORDER_PRODUCT = "insert_order_product";
+    public static final String COMMAND_UPDATE_ORDER_PRODUCT = "update_order_product";
+    public static final String COMMAND_DEL_ORDER_PRODUCT = "delete_order_product";
 }

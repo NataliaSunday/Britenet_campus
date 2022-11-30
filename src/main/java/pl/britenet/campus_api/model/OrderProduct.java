@@ -14,7 +14,7 @@ public class OrderProduct {
                 "\nidProduct=" + idProduct +
                 "\nidOrder=" + idOrder +
                 "\nhowMany=" + howMany +
-                "\nprice=" + price ;
+                "\nprice=" + price + "\n";
     }
 
     public int getIdOrderProduct() {

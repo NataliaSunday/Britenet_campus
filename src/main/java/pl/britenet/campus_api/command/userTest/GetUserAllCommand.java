@@ -14,6 +14,11 @@ public class GetUserAllCommand extends Command {
 
         DatabaseService databaseService = new DatabaseService();
         UserService userService = new UserService(databaseService);
-        System.out.println("User: \n" + userService.getUserAll().toString());
+        try {
+            System.out.println("User: \n" + userService.getUserAll().toString());
+        }
+        catch (Exception e){
+            System.out.println("Error");
+        }
     }
 }

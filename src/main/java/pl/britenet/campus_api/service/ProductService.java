@@ -53,8 +53,9 @@ public class ProductService {
                             .setHowMany(resultSet.getInt("how_many")).getProduct();
                 }
             }catch (SQLException e) {
-                throw  new IllegalStateException(e);
+                throw  new IllegalStateException();
             }
+
             return null;
         });
     }

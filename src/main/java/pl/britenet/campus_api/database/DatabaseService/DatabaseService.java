@@ -18,9 +18,9 @@ public class DatabaseService {
 
         try (Connection connection = this.dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(dml)) {
-
             statement.executeUpdate();
         }catch (SQLException e){ //error sqlexepction, error runtime
+            System.out.println("lol");
             throw new IllegalStateException(e);
         }
     }
@@ -28,10 +28,11 @@ public class DatabaseService {
         try (Connection connection = this.dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            return  resultParser.parse(statement.executeQuery());
-            }
-        catch (SQLException e){ //error sqlexepction, error runtime
+            return resultParser.parse(statement.executeQuery());
+        }
+        catch (SQLException e) {
             throw new IllegalStateException(e);
         }
+
     }
 }

@@ -4,6 +4,7 @@ import pl.britenet.campus_api.command.*;
 import pl.britenet.campus_api.command.cartTest.*;
 import pl.britenet.campus_api.command.categoryTest.*;
 import pl.britenet.campus_api.command.opinionsTest.*;
+import pl.britenet.campus_api.command.orderProduct.*;
 import pl.britenet.campus_api.command.orderProductTest.*;
 import pl.britenet.campus_api.command.orderTest.*;
 import pl.britenet.campus_api.command.productTest.*;
@@ -66,6 +67,12 @@ public class Main {
         commandService.registerCommand(new InsertOrderCommand());
         commandService.registerCommand(new UpdateOrderCommand());
         commandService.registerCommand(new DelOrderCommand());
+
+        commandService.registerCommand(new GetOrderProductAllCommand());
+        commandService.registerCommand(new GetOrderProductOneCommand());
+        commandService.registerCommand(new InsertOrderProductCommand());
+        commandService.registerCommand(new UpdateOrderProductCommand());
+        commandService.registerCommand(new DelOrderProductCommand());
 
 
         Scanner scanner = new Scanner(System.in);

@@ -70,7 +70,7 @@ public class OrderService {
     }
 
     public void insertOrder(Order order){
-        String dml = String.format(Locale.US, "INSERT INTO orders(id_user,order_date, country, city, home_number, zip_code, phone_number, e_mail,total_price, discount) VALUES ( %d, '%S', '%S', '%S', '%S', '%S', '%S', %f, %f);", order.getIdUser(),order.getOrderDate(), order.getCountry(), order.getCity(), order.getHomeNumber(), order.getZipCode(), order.getPhoneNumber(), order.geteMail(), order.getTotalPrice(), order.getDiscount());
+        String dml = String.format(Locale.US, "INSERT INTO orders(id_user,order_date, country, city, home_number, zip_code, phone_number, e_mail,total_price, discount) VALUES ( %d, '%S', '%S', '%S', '%S', '%S', '%S','%S', %f, %f);", order.getIdUser(),order.getOrderDate(), order.getCountry(), order.getCity(), order.getHomeNumber(), order.getZipCode(), order.getPhoneNumber(), order.geteMail(), order.getTotalPrice(), order.getDiscount());
         this.databaseService.performDML(dml);
     }
 

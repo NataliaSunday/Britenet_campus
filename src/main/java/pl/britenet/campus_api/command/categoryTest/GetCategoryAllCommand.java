@@ -10,10 +10,14 @@ public class GetCategoryAllCommand extends Command {
     public GetCategoryAllCommand() { super(Constants.COMMAND_NAME_GET_CATEGORY_ALL); }
 
     @Override
-    public void execute(){
+    public void execute() {
 
         DatabaseService databaseService = new DatabaseService();
         CategoryService categoryService = new CategoryService(databaseService);
-        System.out.println("Product: \n" + categoryService.getCategoryAll().toString());
+        try {
+            System.out.println("Category: \n" + categoryService.getCategoryAll().toString());
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
     }
 }

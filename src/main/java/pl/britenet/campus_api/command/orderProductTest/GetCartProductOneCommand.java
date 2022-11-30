@@ -5,6 +5,7 @@ import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.service.CartProductService;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GetCartProductOneCommand extends Command {
@@ -17,8 +18,17 @@ public class GetCartProductOneCommand extends Command {
         DatabaseService databaseService = new DatabaseService();
         CartProductService cartProductService = new CartProductService(databaseService);
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Cart products Id: ");
-        int cartProductsId = scanner.nextInt();
-        System.out.println("Cart products: " + cartProductsId + "\n" + cartProductService.getCartProductOne(cartProductsId).toString());
+
+        try{
+            System.out.println("Cart products Id: ");
+            int cartProductsId = scanner.nextInt();
+            System.out.println("Cart products: " + cartProductsId + "\n" + cartProductService.getCartProductOne(cartProductsId).toString());
+        }catch (NullPointerException e){
+            System.out.println("Cart products with this Id doesn't exist");
+        }catch (InputMismatchException e) {
+            System.out.println("Bad type of data");
+        }catch (Exception e){
+            System.out.println("Error");
+        }
     }
 }

@@ -5,6 +5,7 @@ import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.service.OpinionService;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class GetOpinionsOneCommand extends Command {
@@ -17,8 +18,18 @@ public class GetOpinionsOneCommand extends Command {
         DatabaseService databaseService = new DatabaseService();
         OpinionService opinionService = new OpinionService(databaseService);
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Opinion Id:");
-        int opinionId = scanner.nextInt();
-        System.out.println("Opinion: \n" + opinionService.getOpinionOne(opinionId).toString());
+
+        try{
+            System.out.println("Opinion Id:");
+            int opinionId = scanner.nextInt();
+            System.out.println("Opinion: \n" + opinionService.getOpinionOne(opinionId).toString());
+        }catch (NullPointerException e){
+            System.out.println("Opinion with this Id doesn't exist");
+        }catch (InputMismatchException e) {
+            System.out.println("Bad type of data");
+        }catch (Exception e){
+            System.out.println("Error");
+        }
     }
+
 }

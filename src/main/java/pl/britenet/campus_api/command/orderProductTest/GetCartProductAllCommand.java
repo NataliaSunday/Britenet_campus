@@ -14,6 +14,10 @@ public class GetCartProductAllCommand extends Command {
 
         DatabaseService databaseService = new DatabaseService();
         CartProductService cartProductService = new CartProductService(databaseService);
-        System.out.println("Cart products: \n" + cartProductService.getCartProductAll().toString());
+        try {
+            System.out.println("Cart products: \n" + cartProductService.getCartProductAll().toString());
+        }catch (Exception e){
+        System.out.println("Error");
+    }
     }
 }

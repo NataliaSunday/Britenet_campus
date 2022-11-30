@@ -43,12 +43,14 @@ public class CategoryService {
                             .setName(resultSet.getString("name")).
                             setDescription(resultSet.getString("description")).getCategory();
                 }
+
             }catch (SQLException e) {
+                System.out.println("error");
                 throw new IllegalStateException(e);
             }
             return null;
         });
-    }
+    };
     public void insertCategory(Category category) {
         String dml = String.format("INSERT INTO category (name, description) VALUES ('%S', '%S')", category.getName(), category.getDescription());
         this.databaseService.performDML(dml);
@@ -65,9 +67,3 @@ public class CategoryService {
     };
 }
 
-//v dopisać z gita
-//get > select
-//jak dzial hikari sterowniki i poole
-//interfejs funkcyjny
-//spotkanie 10
-//while dodac liste

@@ -14,7 +14,11 @@ public class GetOrderAllCommand  extends Command {
 
         DatabaseService databaseService = new DatabaseService();
         OrderService orderService = new OrderService(databaseService);
-        System.out.println("Order: \n" + orderService.getOrderAll().toString());
+        try{
+            System.out.println("Order: \n" + orderService.getOrderAll().toString());
+        }catch (Exception e){
+            System.out.println("Error");
+        }
     }
 
 }
