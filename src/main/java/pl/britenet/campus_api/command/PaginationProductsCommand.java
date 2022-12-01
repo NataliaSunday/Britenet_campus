@@ -18,17 +18,33 @@ public class PaginationProductsCommand extends Command {
         Scanner scanner = new Scanner(System.in);
         PaginationService<Product> paginationService = new PaginationService<Product>(productService.getProductAll(), 5);
 
-        paginationService.getCurrent();
-        System.out.println( "current ^");
-        paginationService.getNext();
-        System.out.println( "next ^");
-        paginationService.getPrevious();
-        System.out.println( "prev ^");
-
-
-
-
         boolean isRunning = true;
+
+        paginationService.getCurrent();
+
+       do{
+           System.out.println("(p) previous ------ next (n)");
+           String action = scanner.nextLine();
+           System.out.println(action);
+           if (action.equalsIgnoreCase("n")) {
+
+               paginationService.getNext();
+               System.out.println(action);
+
+           }
+           else if(action.equalsIgnoreCase("p")){
+               paginationService.getPrevious();
+           }else {
+               isRunning = false;
+               System.out.println(isRunning);
+           }
+
+       }while(isRunning == true);
+
+
+
+
+
 
 
 
