@@ -1,14 +1,15 @@
 package pl.britenet.campus_api;
 
 import pl.britenet.campus_api.command.*;
-import pl.britenet.campus_api.command.cartTest.*;
-import pl.britenet.campus_api.command.categoryTest.*;
-import pl.britenet.campus_api.command.opinionsTest.*;
-import pl.britenet.campus_api.command.orderProduct.*;
-import pl.britenet.campus_api.command.orderProductTest.*;
-import pl.britenet.campus_api.command.orderTest.*;
-import pl.britenet.campus_api.command.productTest.*;
-import pl.britenet.campus_api.command.userTest.*;
+import pl.britenet.campus_api.command.paginationTest.*;
+import pl.britenet.campus_api.command.tablesTest.cartTest.*;
+import pl.britenet.campus_api.command.tablesTest.categoryTest.*;
+import pl.britenet.campus_api.command.tablesTest.opinionsTest.*;
+import pl.britenet.campus_api.command.tablesTest.orderProduct.*;
+import pl.britenet.campus_api.command.tablesTest.orderProductTest.*;
+import pl.britenet.campus_api.command.tablesTest.orderTest.*;
+import pl.britenet.campus_api.command.tablesTest.productTest.*;
+import pl.britenet.campus_api.command.tablesTest.userTest.*;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.service.CategoryService;
 
@@ -25,7 +26,15 @@ public class Main {
 
         commandService.registerCommand(new HelpCommand(commandService.getCommandList()));
         commandService.registerCommand(new ExitCommand());
-        commandService.registerCommand(new PaginationProductsCommand());
+
+        commandService.registerCommand(new productPaginationCommand.PaginationProductsCommand());
+        commandService.registerCommand(new userPaginationCommand.UserPaginationCommand());
+        commandService.registerCommand(new orderProductPaginationCommand.OrderProductPaginationCommand());
+        commandService.registerCommand(new orderPaginationCommand.OrderPaginationCommand());
+        commandService.registerCommand(new opinionsPaginationCommand.OpinionsPaginationCommand());
+        commandService.registerCommand(new categoryPaginationCommand.CategoryPaginationCommand());
+        commandService.registerCommand(new cartPaginationCommand.CartPaginationCommand());
+        commandService.registerCommand(new cartProductPaginationCommand.CartProductPaginationCommand());
 
         commandService.registerCommand(new GetCategoryAllCommand());
         commandService.registerCommand(new GetCategoryOneCommand());

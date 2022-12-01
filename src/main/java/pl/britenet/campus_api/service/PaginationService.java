@@ -18,27 +18,41 @@ public class PaginationService<T> {
     }
 
     public void getCurrent(){
-        for (int i = 0; i < pageLimit; i++){
-            System.out.println(allRecords.get(i));
+        try {
+            for (int i = 0; i < pageLimit; i++){
+                System.out.println(allRecords.get(i));
+            }
+            System.out.println("(p) previous ------ next (n)");
+            page++;
+        }catch (IndexOutOfBoundsException e){
+            System.out.println( "There is not next data");
         }
-        page++;
+
     }
 
-    public  void getNext(){
-        for (int i = 0; i < pageLimit; i++){
-            System.out.println(allRecords.get((page * pageLimit) +i));
+    public  void getNext() {
+        try {
+            for (int i = 0; i < pageLimit; i++) {
+                System.out.println(allRecords.get((page * pageLimit) + i));
+            }
+            System.out.println("(p) previous ------ next (n)");
+            page++;
+        }catch (IndexOutOfBoundsException e){
+            System.out.println( "There is not next data");
         }
-        page++;
     }
 
     public  void getPrevious(){
-        page--;
-        for (int i = 0; i < pageLimit; i++){
-            System.out.println(allRecords.get((page * pageLimit) - (5 - i)));
-        }
+       try {
+           page--;
+           for (int i = 0; i < pageLimit; i++){
+               System.out.println(allRecords.get((page * pageLimit) - (5 - i)));
+           }
+           System.out.println("(p) previous ------ next (n)");
+       } catch (IndexOutOfBoundsException e){
+           System.out.println( "There is not previous data");
+       }
     }
-
-
 
 }
 //next previos current
