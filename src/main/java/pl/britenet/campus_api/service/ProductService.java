@@ -11,7 +11,7 @@ import java.util.Locale;
 
 public class ProductService {
 
-    private  final DatabaseService databaseService;
+    private final DatabaseService databaseService;
 
     public ProductService(DatabaseService databaseService) { this.databaseService = databaseService; }
 

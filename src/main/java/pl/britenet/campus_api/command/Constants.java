@@ -9,6 +9,8 @@ public class Constants {
     public static final String COMMAND_NAME_HELP = "help";
     public static final String COMMAND_NAME_EXIT = "exit";
 
+    public static final String COMMAND_PAGINATION_PRODUCTS = "pagination_products";
+
 
     public static  final String COMMAND_NAME_GET_CATEGORY_ALL = "get_category_all";
     public static  final String COMMAND_NAME_GET_CATEGORY_ONE = "get_category_one";

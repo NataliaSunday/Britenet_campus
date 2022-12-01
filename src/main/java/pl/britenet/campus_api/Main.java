@@ -25,6 +25,7 @@ public class Main {
 
         commandService.registerCommand(new HelpCommand(commandService.getCommandList()));
         commandService.registerCommand(new ExitCommand());
+        commandService.registerCommand(new PaginationProductsCommand());
 
         commandService.registerCommand(new GetCategoryAllCommand());
         commandService.registerCommand(new GetCategoryOneCommand());
