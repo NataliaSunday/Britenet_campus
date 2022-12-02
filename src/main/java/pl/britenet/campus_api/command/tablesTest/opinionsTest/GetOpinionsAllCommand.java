@@ -3,7 +3,7 @@ package pl.britenet.campus_api.command.tablesTest.opinionsTest;
 import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
-import pl.britenet.campus_api.service.OpinionService;
+import pl.britenet.campus_api.service.tableService.OpinionService;
 
 public class GetOpinionsAllCommand extends Command {
 

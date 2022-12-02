@@ -1,4 +1,4 @@
-package pl.britenet.campus_api.service;
+package pl.britenet.campus_api.service.tableService;
 
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.Order;
@@ -22,7 +22,7 @@ public class OrderService {
                 List<Order> orderList = new ArrayList<>();
                 while (resultSet.next()){
                     orderList.add(new OrderBuilder()
-                            .setId(resultSet.getInt("id_order"))
+                            .setIdOrder(resultSet.getInt("id_order"))
                             .setIdUser(resultSet.getInt("id_user"))
                             .setOrderDate(resultSet.getString("order_date"))
                             .setCountry(resultSet.getString("country"))
@@ -31,6 +31,8 @@ public class OrderService {
                             .setZipCode(resultSet.getString("zip_code"))
                             .setPhoneNumber(resultSet.getString("phone_number"))
                             .seteMail(resultSet.getString("e_mail"))
+                            .setOrderStatus(resultSet.getString("order_status"))
+                            .setIsPaid(resultSet.getBoolean("is_paid"))
                             .setTotalPrice(resultSet.getDouble("total_price"))
                             .setDiscount(resultSet.getDouble("discount"))
                             .getOrder());
@@ -48,8 +50,8 @@ public class OrderService {
         return this.databaseService.performSQL(dql, resultSet -> {
             try {
                 if(resultSet.next()) {
-                    new OrderBuilder()
-                            .setId(resultSet.getInt("id_order"))
+                   return new OrderBuilder()
+                            .setIdOrder(resultSet.getInt("id_order"))
                             .setIdUser(resultSet.getInt("id_user"))
                             .setOrderDate(resultSet.getString("order_date"))
                             .setCountry(resultSet.getString("country"))
@@ -58,6 +60,8 @@ public class OrderService {
                             .setZipCode(resultSet.getString("zip_code"))
                             .setPhoneNumber(resultSet.getString("phone_number"))
                             .seteMail(resultSet.getString("e_mail"))
+                            .setOrderStatus(resultSet.getString("order_status"))
+                            .setIsPaid(resultSet.getBoolean("is_paid"))
                             .setTotalPrice(resultSet.getDouble("total_price"))
                             .setDiscount(resultSet.getDouble("discount"))
                             .getOrder();
@@ -65,12 +69,12 @@ public class OrderService {
             }catch (SQLException e) {
                 throw  new IllegalStateException(e);
             }
-            return null;
+        return null;
         });
     }
 
     public void insertOrder(Order order){
-        String dml = String.format(Locale.US, "INSERT INTO orders(id_user,order_date, country, city, home_number, zip_code, phone_number, e_mail,total_price, discount) VALUES ( %d, '%S', '%S', '%S', '%S', '%S', '%S','%S', %f, %f);", order.getIdUser(),order.getOrderDate(), order.getCountry(), order.getCity(), order.getHomeNumber(), order.getZipCode(), order.getPhoneNumber(), order.geteMail(), order.getTotalPrice(), order.getDiscount());
+        String dml = String.format(Locale.US, "INSERT INTO orders(id_user,order_date, country, city, home_number, zip_code, phone_number, e_mail, order_status, is_paid, total_price, discount) VALUES ( %d, '%S', '%S', '%S', '%S', '%S', '%S','%S', '%S',%b, %f, %f);", order.getIdUser(),order.getOrderDate(), order.getCountry(), order.getCity(), order.getHomeNumber(), order.getZipCode(), order.getPhoneNumber(), order.geteMail(), order.getOrderStatus(), order.getIsPaid(),  order.getTotalPrice(), order.getDiscount());
         this.databaseService.performDML(dml);
     }
 
@@ -78,7 +82,7 @@ public class OrderService {
 
         if (col.equalsIgnoreCase("country") || col.equalsIgnoreCase("city") ||
                 col.equalsIgnoreCase("home_number") || col.equalsIgnoreCase("zip_code") || col.equalsIgnoreCase("phone_number") ||
-                col.equalsIgnoreCase("e_mail")) {
+                col.equalsIgnoreCase("e_mail") || col.equalsIgnoreCase("order_status")) {
             String dml = String.format("UPDATE orders SET %S = '%S' WHERE id_order= %d", col, newContent, id);
             this.databaseService.performDML(dml);
         }
@@ -90,7 +94,13 @@ public class OrderService {
         else if (col.equalsIgnoreCase("total_price") || col.equalsIgnoreCase("discount")){
             double parseNewContent = Double.parseDouble(newContent);
 
-            String dml = String.format("UPDATE orders SET %S = %d WHERE id_order= %d", col, parseNewContent, id);
+            String dml = String.format("UPDATE orders SET %S = %f WHERE id_order= %d", col, parseNewContent, id);
+            this.databaseService.performDML(dml);
+        }
+        else if (col.equalsIgnoreCase("isPaid")){
+            boolean parseNewContent = Boolean.parseBoolean(newContent);
+
+            String dml = String.format("UPDATE orders SET %S = %b WHERE id_order= %d", col, parseNewContent, id);
             this.databaseService.performDML(dml);
         }
         else {
@@ -101,5 +111,5 @@ public class OrderService {
     public void delOrders(int id) {
         String dml = String.format("DELETE FROM orders WHERE id_order=%d", id);
         this.databaseService.performDML(dml);
-    };
+    }
 }

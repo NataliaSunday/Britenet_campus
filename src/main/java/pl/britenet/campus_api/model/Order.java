@@ -2,18 +2,6 @@ package pl.britenet.campus_api.model;
 
 public class Order {
 
-    private int idOrder;
-    private int idUser;
-    private String orderDate;
-    private String country;
-    private String city;
-    private String homeNumber;
-    private String zipCode;
-    private String phoneNumber;
-    private String eMail;
-    private double totalPrice;
-    private double discount;
-
     @Override
     public String toString() {
         return
@@ -26,9 +14,30 @@ public class Order {
                 "\nzipCode='" + zipCode +
                 "\nphoneNumber='" + phoneNumber +
                 "\neMail='" + eMail +
+                "\norderStatus='" + orderStatus +
+                "\nisPaid=" + isPaid +
                 "\ntotalPrice=" + totalPrice +
-                "\ndiscount=" + discount;
+                "\ndiscount=" + discount + "\n";
     }
+
+    private int idOrder;
+    private int idUser;
+    private String orderDate;
+    private String country;
+    private String city;
+    private String homeNumber;
+    private String zipCode;
+    private String phoneNumber;
+    private String eMail;
+    private String orderStatus;
+    private boolean isPaid;
+    private double totalPrice;
+    private double discount;
+
+
+
+
+
 
     public int getIdOrder() {
         return idOrder;
@@ -102,6 +111,22 @@ public class Order {
         this.eMail = eMail;
     }
 
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public boolean getIsPaid() {
+        return isPaid;
+    }
+
+    public void setPaid(boolean paid) {
+        isPaid = paid;
+    }
+
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -118,7 +143,8 @@ public class Order {
         this.discount = discount;
     }
 
-    public Order(){};
+
+    public Order(){}
 
 
 

@@ -1,6 +1,5 @@
 package pl.britenet.campus_api.model.builder;
 
-import pl.britenet.campus_api.model.Opinion;
 import pl.britenet.campus_api.model.Order;
 
 public class OrderBuilder {
@@ -11,8 +10,8 @@ public class OrderBuilder {
 
     public Order getOrder() { return this.order; };
 
-    public OrderBuilder setId(int id){
-        this.order.setIdOrder(id);
+    public OrderBuilder setIdOrder(int idOrder){
+        this.order.setIdOrder(idOrder);
         return this;
     }
     public OrderBuilder setIdUser(int id){
@@ -47,6 +46,16 @@ public class OrderBuilder {
         this.order.seteMail(email);
         return  this;
     }
+
+    public OrderBuilder setOrderStatus(String orderStatus){
+        this.order.setOrderStatus(orderStatus);
+        return this;
+    }
+    public OrderBuilder setIsPaid(boolean isPaid){
+        this.order.setPaid(isPaid);
+        return this;
+    }
+
     public OrderBuilder setTotalPrice(double price){
         this.order.setTotalPrice(price);
         return  this;

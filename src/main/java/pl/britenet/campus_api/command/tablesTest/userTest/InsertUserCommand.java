@@ -6,7 +6,7 @@ import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 
 
 import pl.britenet.campus_api.model.User;
-import pl.britenet.campus_api.service.UserService;
+import pl.britenet.campus_api.service.tableService.UserService;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

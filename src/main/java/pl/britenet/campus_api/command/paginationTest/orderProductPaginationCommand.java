@@ -4,10 +4,8 @@ import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.OrderProduct;
-import pl.britenet.campus_api.model.Product;
-import pl.britenet.campus_api.service.OrderProductService;
+import pl.britenet.campus_api.service.tableService.OrderProductService;
 import pl.britenet.campus_api.service.PaginationService;
-import pl.britenet.campus_api.service.ProductService;
 
 import java.util.Scanner;
 

@@ -1,6 +1,5 @@
 package pl.britenet.campus_api.model.builder;
 
-import pl.britenet.campus_api.model.Product;
 import pl.britenet.campus_api.model.User;
 
 public class UserBuilder {

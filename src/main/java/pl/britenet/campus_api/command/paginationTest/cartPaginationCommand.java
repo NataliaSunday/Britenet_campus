@@ -4,7 +4,7 @@ import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.Cart;
-import pl.britenet.campus_api.service.CartService;
+import pl.britenet.campus_api.service.tableService.CartService;
 import pl.britenet.campus_api.service.PaginationService;
 
 import java.util.Scanner;

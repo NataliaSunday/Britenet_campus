@@ -4,7 +4,7 @@ import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.OrderProduct;
-import pl.britenet.campus_api.service.OrderProductService;
+import pl.britenet.campus_api.service.tableService.OrderProductService;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

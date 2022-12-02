@@ -11,7 +11,7 @@ import pl.britenet.campus_api.command.tablesTest.orderTest.*;
 import pl.britenet.campus_api.command.tablesTest.productTest.*;
 import pl.britenet.campus_api.command.tablesTest.userTest.*;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
-import pl.britenet.campus_api.service.CategoryService;
+import pl.britenet.campus_api.service.tableService.CategoryService;
 
 import java.util.Optional;
 import java.util.Scanner;

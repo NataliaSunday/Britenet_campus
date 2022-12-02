@@ -4,7 +4,7 @@ import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.Order;
-import pl.britenet.campus_api.service.OrderService;
+import pl.britenet.campus_api.service.tableService.OrderService;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -48,12 +48,23 @@ public class InsertOrderCommand  extends Command {
             System.out.println("Order e-mail: ");
             String orderEmail = scanner.nextLine();
 
+
+            System.out.println("Order is paid: ");
+            Boolean orderIsPaid = scanner.nextBoolean();
+
+
+            System.out.println("Order status('in progress','ready to send',' in way','finished','canceled'):");
+
+            scanner.nextLine();
+            String orderStatus = scanner.nextLine();
+
             System.out.println("Order total_price: ");
             Double orderTotalPrice = scanner.nextDouble();
 
             System.out.println("Order discount ");
             Double orderDiscount = scanner.nextDouble();
 
+            System.out.println(orderStatus + orderIsPaid);
             order.setIdUser(idUser);
             order.setOrderDate(orderDate);
             order.setCountry(orderCountry);
@@ -62,6 +73,8 @@ public class InsertOrderCommand  extends Command {
             order.setZipCode(orderZipCode);
             order.setPhoneNumber(orderPhoneNumber);
             order.seteMail(orderEmail);
+            order.setOrderStatus(orderStatus);
+            order.setPaid(orderIsPaid);
             order.setTotalPrice(orderTotalPrice);
             order.setDiscount(orderDiscount);
             orderService.insertOrder(order);
@@ -70,7 +83,7 @@ public class InsertOrderCommand  extends Command {
         } catch (InputMismatchException e) {
             System.out.println("Bad type of data");
         } catch (IllegalStateException e) {
-            System.out.println("SQL Error");
+            System.out.println("SQL Error" + e);
         } catch (Exception e) {
             System.out.println("Error");
         }

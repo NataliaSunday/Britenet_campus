@@ -5,7 +5,7 @@ import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.Product;
 import pl.britenet.campus_api.service.PaginationService;
-import pl.britenet.campus_api.service.ProductService;
+import pl.britenet.campus_api.service.tableService.ProductService;
 
 import java.util.Scanner;
 

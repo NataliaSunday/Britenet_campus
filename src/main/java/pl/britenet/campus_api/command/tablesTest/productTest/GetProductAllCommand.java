@@ -4,7 +4,7 @@ import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 
-import pl.britenet.campus_api.service.ProductService;
+import pl.britenet.campus_api.service.tableService.ProductService;
 
 public class GetProductAllCommand extends Command {
 

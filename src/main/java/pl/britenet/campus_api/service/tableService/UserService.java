@@ -1,4 +1,4 @@
-package pl.britenet.campus_api.service;
+package pl.britenet.campus_api.service.tableService;
 
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.User;
@@ -7,7 +7,6 @@ import pl.britenet.campus_api.model.builder.UserBuilder;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class UserService {
 

@@ -4,7 +4,7 @@ import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.Opinion;
-import pl.britenet.campus_api.service.OpinionService;
+import pl.britenet.campus_api.service.tableService.OpinionService;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
