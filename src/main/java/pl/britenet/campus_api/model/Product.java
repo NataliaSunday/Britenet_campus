@@ -6,11 +6,21 @@ public class Product {
     private int id;
     private double price;
     private int idCategory;
-
     private  String desc;
     private String producer;
     private int howMany;
 
+    private Category category;
+
+    public Product(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getProducer() {
         return producer;
     }
@@ -24,14 +34,6 @@ public class Product {
 
     public void setHowMany(int howMany) {
         this.howMany = howMany;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -63,7 +65,13 @@ public class Product {
         this.idCategory = idCategory;
     }
 
-    public Product(){}
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     @Override
     public String toString() {
@@ -71,6 +79,7 @@ public class Product {
                 "\nname='" + name +
                 "\nid=" + id +
                 "\nidCategory=" + idCategory +
+                "\ncategory='" + category +
                 "\nprice=" + price +
                 "\ndesc='" + desc +
                 "\nproducer='" + producer +
@@ -78,7 +87,3 @@ public class Product {
     }
 
 }
-
-//paginacja wszytskich rekorduffff  w bazie
-//obsluga beledow
-//

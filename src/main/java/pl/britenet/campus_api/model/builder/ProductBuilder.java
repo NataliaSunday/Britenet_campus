@@ -1,5 +1,6 @@
 package pl.britenet.campus_api.model.builder;
 
+import pl.britenet.campus_api.model.Category;
 import pl.britenet.campus_api.model.Product;
 
 
@@ -8,6 +9,9 @@ public class ProductBuilder {
 
     private final Product product;
 
+    public Product getProduct() {
+        return  this.product;
+    }
 
     public ProductBuilder(){ this.product = new Product(); }
 
@@ -40,7 +44,10 @@ public class ProductBuilder {
         return this;
     }
 
-    public Product getProduct() {
-        return  this.product;
+    public ProductBuilder setCategory(Category category){
+        this.product.setCategory(category);
+        return this;
     }
+
+
 }

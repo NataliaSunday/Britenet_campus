@@ -2,8 +2,10 @@ package pl.britenet.campus_api.model;
 
 public final class Category { //nie mozna rozszerzac w przypadku klasy - final
 
-
-    public Category(){} //konstruktor
+    private  String name;
+    private int id;
+    private String description;
+    public Category(){}
 
     public int getId() {
         return id;
@@ -27,9 +29,6 @@ public final class Category { //nie mozna rozszerzac w przypadku klasy - final
         this.description = description;
     }
 
-    private  String name;
-    private int id;
-    private String description;
 
     @Override
     public String toString() {

@@ -7,6 +7,7 @@ import pl.britenet.campus_api.model.Product;
 import pl.britenet.campus_api.service.PaginationService;
 import pl.britenet.campus_api.service.tableService.ProductService;
 
+import java.util.Optional;
 import java.util.Scanner;
 
 public class productPaginationCommand {
@@ -20,7 +21,9 @@ public class productPaginationCommand {
             DatabaseService databaseService = new DatabaseService();
             ProductService productService = new ProductService(databaseService);
 
+
             PaginationService<Product> paginationService = new PaginationService<Product>(productService.getProductAll(), 5);
+
 
             Scanner scanner = new Scanner(System.in);
             boolean isRunning = true;

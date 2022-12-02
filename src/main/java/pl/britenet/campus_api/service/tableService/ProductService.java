@@ -1,7 +1,9 @@
 package pl.britenet.campus_api.service.tableService;
 
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
+import pl.britenet.campus_api.model.Category;
 import pl.britenet.campus_api.model.Product;
+import pl.britenet.campus_api.model.builder.CategoryBuilder;
 import pl.britenet.campus_api.model.builder.ProductBuilder;
 
 import java.sql.SQLException;
@@ -16,41 +18,59 @@ public class ProductService {
     public ProductService(DatabaseService databaseService) { this.databaseService = databaseService; }
 
     public List<Product> getProductAll() {
-        String dql ="SELECT * FROM product";
+        String dql = String.format("SELECT p.id_product,p.id_category,p.name,p.producer,p.description,p.price, p.how_many, c.id_category, c.name, c.description FROM product p  INNER JOIN category c ON c.id_category = p.id_category;");
         return this.databaseService.performSQL(dql, resultSet -> {
             try {
                 List<Product> productsList = new ArrayList<>();
-               while (resultSet.next()){
-                   productsList.add(new ProductBuilder()
-                            .setId(resultSet.getInt("id_product"))
-                            .setIdCategory(resultSet.getInt("id_category"))
-                            .setName(resultSet.getString("name"))
-                            .setProducer(resultSet.getString("producer"))
-                            .setDesc(resultSet.getString("description"))
-                            .setPrice(resultSet.getDouble("price"))
-                            .setHowMany(resultSet.getInt("how_many")).getProduct());
+               while(resultSet.next()) {
+                   Category category = new CategoryBuilder()
+                           .setId(resultSet.getInt("c.id_category"))
+                           .setName(resultSet.getString("c.name"))
+                           .setDescription(resultSet.getString("c.description"))
+                           .getCategory();
+                   productsList.add(
+                    new ProductBuilder()
+                            .setId(resultSet.getInt("p.id_product"))
+                            .setIdCategory(resultSet.getInt("p.id_category"))
+                            .setName(resultSet.getString("p.name"))
+                            .setProducer(resultSet.getString("p.producer"))
+                            .setDesc(resultSet.getString("p.description"))
+                            .setPrice(resultSet.getDouble("p.price"))
+                            .setHowMany(resultSet.getInt("p.how_many"))
+                            .setCategory(category)
+                            .getProduct());
                 }
                return productsList;
             }catch (SQLException e) {
-                throw  new IllegalStateException(e);
+                throw  new IllegalStateException();
             }
+
 
         });
     }
 
     public Product getProductOne(int id) {
-        String dql = String.format("SELECT * FROM product where id_product = %d", id);
+        String dql = String.format("SELECT p.id_product,p.id_category,p.name,p.producer,p.description,p.price, p.how_many, c.id_category, c.name, c.description FROM product p  INNER JOIN category c ON c.id_category = p.id_category where p.id_product = %d", id);
         return this.databaseService.performSQL(dql, resultSet -> {
             try {
                 if(resultSet.next()) {
+
+                    Category category = new CategoryBuilder()
+                            .setId(resultSet.getInt("c.id_category"))
+                            .setName(resultSet.getString("c.name"))
+                            .setDescription(resultSet.getString("c.description"))
+                            .getCategory();
+
                     return new ProductBuilder()
-                            .setId(resultSet.getInt("id_product"))
-                            .setIdCategory(resultSet.getInt("id_category"))
-                            .setName(resultSet.getString("name"))
-                            .setProducer(resultSet.getString("producer"))
-                            .setDesc(resultSet.getString("description"))
-                            .setPrice(resultSet.getDouble("price"))
-                            .setHowMany(resultSet.getInt("how_many")).getProduct();
+                            .setId(resultSet.getInt("p.id_product"))
+                            .setIdCategory(resultSet.getInt("p.id_category"))
+                            .setName(resultSet.getString("p.name"))
+                            .setProducer(resultSet.getString("p.producer"))
+                            .setDesc(resultSet.getString("p.description"))
+                            .setPrice(resultSet.getDouble("p.price"))
+                            .setHowMany(resultSet.getInt("p.how_many"))
+                            .setCategory(category)
+                            .getProduct();
                 }
             }catch (SQLException e) {
                 throw  new IllegalStateException();
