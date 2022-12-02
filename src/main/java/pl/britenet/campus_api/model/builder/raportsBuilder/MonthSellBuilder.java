@@ -1,4 +1,4 @@
-package pl.britenet.campus_api.model.builder.raportsBuilde;
+package pl.britenet.campus_api.model.builder.raportsBuilder;
 
 import pl.britenet.campus_api.model.raportsModel.MonthSell;
 

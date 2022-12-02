@@ -9,9 +9,13 @@ public class Constants {
     public static final String COMMAND_NAME_HELP = "help";
     public static final String COMMAND_NAME_EXIT = "exit";
 
-
     public  static  final String COMMAND_MONTHS_SELL_PRODUCTS = "rap_months_sell";
     public  static  final String COMMAND_MONTHS_SALE = "rap_months_sale";
+    public  static  final String COMMAND_ORDER_COUNT = "rap_order_count";
+    public static final String COMMAND_ORDERS_STATUS =  "rap_orders_status";
+    public static final String COMMAND_PRODUCTS_SALE_MONTHS_YEARS =  "rap_products_sale_months_years";
+
+
     public static final String COMMAND_PAGINATION_USERS = "pagi_users";
     public static final String COMMAND_PAGINATION_PRODUCTS = "pagi_products";
     public static final String COMMAND_PAGINATION_ORDER_PRODUCTS = "pagi_order_product";
