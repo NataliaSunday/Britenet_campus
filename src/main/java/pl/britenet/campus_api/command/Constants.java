@@ -10,15 +10,14 @@ public class Constants {
     public static final String COMMAND_NAME_EXIT = "exit";
 
 
+    public  static  final String COMMAND_MONTHS_SELL_PRODUCTS = "rap_months_sell";
     public static final String COMMAND_PAGINATION_USERS = "pagi_users";
     public static final String COMMAND_PAGINATION_PRODUCTS = "pagi_products";
     public static final String COMMAND_PAGINATION_ORDER_PRODUCTS = "pagi_order_product";
     public static final String COMMAND_PAGINATION_ORDER = "pagi_order";
     public static final String COMMAND_PAGINATION_OPINIONS = "pagi_opinions";
     public static final String COMMAND_PAGINATION_CATEGORY= "pagi_category";
-
     public static final String COMMAND_PAGINATION_CART= "pagi_cart";
-
     public static final String COMMAND_PAGINATION_CART_PRODUCT = "pagi_cart_product";
 
 
