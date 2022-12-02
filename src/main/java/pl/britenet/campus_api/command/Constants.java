@@ -11,6 +11,7 @@ public class Constants {
 
 
     public  static  final String COMMAND_MONTHS_SELL_PRODUCTS = "rap_months_sell";
+    public  static  final String COMMAND_MONTHS_SALE = "rap_months_sale";
     public static final String COMMAND_PAGINATION_USERS = "pagi_users";
     public static final String COMMAND_PAGINATION_PRODUCTS = "pagi_products";
     public static final String COMMAND_PAGINATION_ORDER_PRODUCTS = "pagi_order_product";

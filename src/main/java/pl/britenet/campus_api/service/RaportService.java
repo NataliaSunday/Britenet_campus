@@ -3,7 +3,9 @@ package pl.britenet.campus_api.service;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.Order;
 import pl.britenet.campus_api.model.builder.OrderBuilder;
+import pl.britenet.campus_api.model.builder.raportsBuilde.MonthSaleBuilder;
 import pl.britenet.campus_api.model.builder.raportsBuilde.MonthSellBuilder;
+import pl.britenet.campus_api.model.raportsModel.MonthSale;
 import pl.britenet.campus_api.model.raportsModel.MonthSell;
 import pl.britenet.campus_api.service.tableService.OrderService;
 
@@ -36,7 +38,25 @@ public class RaportService {
             }catch (SQLException e) {
                 throw  new IllegalStateException(e);
             }
+        });
+    }
 
+    public List<MonthSale> MonthSaleRaport(){
+        String dql =
+                "SELECT SUM(o.total_price) AS Total, MONTH(o.order_date) AS Month FROM orders o GROUP BY MONTH(o.order_date);";
+        return this.databaseService.performSQL(dql, resultSet -> {
+            try {
+                List<MonthSale> monthSaleList = new ArrayList<>();
+                while (resultSet.next()){
+                    monthSaleList.add(new MonthSaleBuilder()
+                            .setTotal(resultSet.getDouble("total"))
+                            .setMonth(resultSet.getInt("month"))
+                            .getMonthSale());
+                }
+                return monthSaleList;
+            }catch (SQLException e) {
+                throw  new IllegalStateException(e);
+            }
         });
     }
 }

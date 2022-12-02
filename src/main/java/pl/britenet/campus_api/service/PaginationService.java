@@ -23,7 +23,7 @@ public class PaginationService<T> {
                 System.out.println(allRecords.get(i));
             }
             System.out.println("(p) previous ------ next (n)");
-            page++;
+
         }catch (IndexOutOfBoundsException e){
             System.out.println( "There is not next data");
         }
@@ -32,25 +32,28 @@ public class PaginationService<T> {
 
     public  void getNext() {
         try {
-            for (int i = 0; i < pageLimit; i++) {
-                System.out.println(allRecords.get((page * pageLimit) + i));
+            page++;
+            int pivot = page*pageLimit;
+            for (int i = pivot; i < pivot + pageLimit; i++) {
+                System.out.println(allRecords.get(i));
             }
             System.out.println("(p) previous ------ next (n)");
-            page++;
+
         }catch (IndexOutOfBoundsException e){
-            System.out.println( "There is not next data");
+            System.out.println( "There is no next data");
         }
     }
 
     public  void getPrevious(){
        try {
            page--;
-           for (int i = 0; i < pageLimit; i++){
-               System.out.println(allRecords.get((page * pageLimit) - (5 - i)));
+           int pivot = page*pageLimit;
+           for (int i = pivot; i < pivot + pageLimit; i++) {
+               System.out.println(allRecords.get(i));
            }
            System.out.println("(p) previous ------ next (n)");
        } catch (IndexOutOfBoundsException e){
-           System.out.println( "There is not previous data");
+           System.out.println( "There is no previous data");
        }
     }
 

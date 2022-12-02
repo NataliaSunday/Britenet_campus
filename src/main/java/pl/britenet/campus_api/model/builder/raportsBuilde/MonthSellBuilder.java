@@ -4,7 +4,7 @@ import pl.britenet.campus_api.model.raportsModel.MonthSell;
 
 public class MonthSellBuilder {
 
-    private  final MonthSell monthSell;
+    private final MonthSell monthSell;
 
     public  MonthSellBuilder(){ this.monthSell = new MonthSell(); }
 

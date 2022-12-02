@@ -2,6 +2,7 @@ package pl.britenet.campus_api;
 
 import pl.britenet.campus_api.command.*;
 import pl.britenet.campus_api.command.paginationTest.*;
+import pl.britenet.campus_api.command.raportsTest.MonthSaleRaportCommand;
 import pl.britenet.campus_api.command.raportsTest.MonthsSellRaportCommand;
 import pl.britenet.campus_api.command.tablesTest.cartTest.*;
 import pl.britenet.campus_api.command.tablesTest.categoryTest.*;
@@ -29,6 +30,8 @@ public class Main {
         commandService.registerCommand(new ExitCommand());
 
         commandService.registerCommand(new MonthsSellRaportCommand());
+        commandService.registerCommand(new MonthSaleRaportCommand());
+
 
         commandService.registerCommand(new productPaginationCommand.PaginationProductsCommand());
         commandService.registerCommand(new userPaginationCommand.UserPaginationCommand());
