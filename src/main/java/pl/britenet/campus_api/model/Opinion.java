@@ -2,6 +2,18 @@ package pl.britenet.campus_api.model;
 
 public class Opinion {
 
+
+    private int idOpinion;
+    private int idProduct;
+    private int idUser;
+    private String opinionDate;
+    private String opinionContent;
+    private int rating;
+    private Product product;
+    private User user;
+
+    public Opinion(){};
+
     public int getIdOpinion() {
         return idOpinion;
     }
@@ -50,12 +62,12 @@ public class Opinion {
         this.rating = rating;
     }
 
-    private int idOpinion;
-    private int idProduct;
-    private int idUser;
-    private String opinionDate;
-    private String opinionContent;
-    private int rating;
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Override
     public String toString() {
@@ -65,9 +77,10 @@ public class Opinion {
                 "\nidUser=" + idUser +
                 "\nopinionDate='" + opinionDate +
                 "\nopinionContent='" + opinionContent +
-                "\nrating=" + rating ;
+                "\nrating=" + rating +
+                "\nuser=" + user + "\n";
     }
 
-    public Opinion(){};
+
 
 }

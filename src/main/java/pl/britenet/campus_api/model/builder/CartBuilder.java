@@ -2,6 +2,7 @@ package pl.britenet.campus_api.model.builder;
 
 import pl.britenet.campus_api.model.Cart;
 import pl.britenet.campus_api.model.Category;
+import pl.britenet.campus_api.model.User;
 
 public class CartBuilder {
 
@@ -28,5 +29,8 @@ public class CartBuilder {
         this.cart.setTotalPrice(totalPrice);
         return this;
     }
-
+    public CartBuilder setUser(User user){
+            this.cart.setUser(user);
+            return this;
+    }
 }

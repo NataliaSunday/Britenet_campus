@@ -2,23 +2,6 @@ package pl.britenet.campus_api.model;
 
 public class Order {
 
-    @Override
-    public String toString() {
-        return
-                "\nidOrder=" + idOrder +
-                "\nidUser=" + idUser +
-                "\norderDate='" + orderDate +
-                "\ncountry='" + country +
-                "\ncity='" + city +
-                "\nhomeNumber='" + homeNumber +
-                "\nzipCode='" + zipCode +
-                "\nphoneNumber='" + phoneNumber +
-                "\neMail='" + eMail +
-                "\norderStatus='" + orderStatus +
-                "\nisPaid=" + isPaid +
-                "\ntotalPrice=" + totalPrice +
-                "\ndiscount=" + discount + "\n";
-    }
 
     private int idOrder;
     private int idUser;
@@ -33,11 +16,8 @@ public class Order {
     private boolean isPaid;
     private double totalPrice;
     private double discount;
-
-
-
-
-
+    private User user;
+    public Order(){}
 
     public int getIdOrder() {
         return idOrder;
@@ -143,8 +123,32 @@ public class Order {
         this.discount = discount;
     }
 
+    public User getUser() {
+        return user;
+    }
 
-    public Order(){}
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "\nidOrder=" + idOrder +
+                        "\nidUser=" + idUser +
+                        "\norderDate='" + orderDate +
+                        "\ncountry='" + country +
+                        "\ncity='" + city +
+                        "\nhomeNumber='" + homeNumber +
+                        "\nzipCode='" + zipCode +
+                        "\nphoneNumber='" + phoneNumber +
+                        "\neMail='" + eMail +
+                        "\norderStatus='" + orderStatus +
+                        "\nisPaid=" + isPaid +
+                        "\ntotalPrice=" + totalPrice +
+                        "\ndiscount=" + discount +
+                        "\nuser= "+ user + "\n";
+    }
 
 
 

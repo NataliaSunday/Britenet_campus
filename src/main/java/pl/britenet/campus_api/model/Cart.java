@@ -2,6 +2,16 @@ package pl.britenet.campus_api.model;
 
 public class Cart {
 
+    private int idCart;
+    private int idUser;
+    private double discount;
+    private double totalPrice;
+
+    private User user;
+
+    public Cart(){};
+
+
     public int getIdCart() {
         return idCart;
     }
@@ -34,6 +44,14 @@ public class Cart {
         this.totalPrice = totalPrice;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return
@@ -41,15 +59,7 @@ public class Cart {
                 "\nidUser=" + idUser +
                 "\ndiscount=" + discount +
                 "\ntotalPrice=" + totalPrice +
-                "\n";
+                "\nuser=" + user + "\n";
     }
-
-    private int idCart;
-    private int idUser;
-    private double discount;
-    private double totalPrice;
-
-    public Cart(){};
-
 
 }

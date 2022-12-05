@@ -2,6 +2,20 @@ package pl.britenet.campus_api.model;
 
 public class User {
 
+    private int idUser;
+    private String name;
+    private String surname;
+    private String password;
+    private String nickname;
+    private String country;
+    private String city;
+    private String homeNumber;
+    private String zipCode;
+    private String phoneNumber;
+    private String eMail;
+
+    public User(){};
+
     public int getIdUser() {
         return idUser;
     }
@@ -89,23 +103,6 @@ public class User {
     public void seteMail(String eMail) {
         this.eMail = eMail;
     }
-
-
-
-    private int idUser;
-    private String name;
-    private String surname;
-    private String password;
-    private String nickname;
-    private String country;
-    private String city;
-    private String homeNumber;
-    private String zipCode;
-    private String phoneNumber;
-    private String eMail;
-
-
-    public User(){};
 
     @Override
     public String toString() {

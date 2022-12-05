@@ -2,6 +2,8 @@ package pl.britenet.campus_api.model.builder;
 
 import pl.britenet.campus_api.model.Category;
 import pl.britenet.campus_api.model.Opinion;
+import pl.britenet.campus_api.model.Product;
+import pl.britenet.campus_api.model.User;
 
 public class OpinionBuilder{
 
@@ -34,4 +36,10 @@ public class OpinionBuilder{
         this.opinion.setRating(rating);
         return this;
     }
+
+    public OpinionBuilder setUser(User user){
+        this.opinion.setUser(user);
+        return this;
+    }
+
 }

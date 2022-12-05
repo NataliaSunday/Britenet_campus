@@ -3,7 +3,10 @@ package pl.britenet.campus_api.command.tablesTest.cartTest;
 import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
+import pl.britenet.campus_api.model.Cart;
 import pl.britenet.campus_api.service.tableService.CartService;
+
+import java.util.List;
 
 public class GetCartAllCommand  extends Command{
 
@@ -14,10 +17,10 @@ public class GetCartAllCommand  extends Command{
 
         DatabaseService databaseService = new DatabaseService();
         CartService cartService = new CartService(databaseService);
-        try {
-            System.out.println("Cart: \n" + cartService.getCartAll().toString());
-        } catch (Exception e) {
-            System.out.println("Error");
-        }
+
+        List<Cart> carts = cartService.getCartAll();
+      for (Cart cart : carts){
+          System.out.println(cart);
+      }
     }
 }

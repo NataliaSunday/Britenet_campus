@@ -1,6 +1,7 @@
 package pl.britenet.campus_api.model.builder;
 
 import pl.britenet.campus_api.model.Order;
+import pl.britenet.campus_api.model.User;
 
 public class OrderBuilder {
 
@@ -63,6 +64,11 @@ public class OrderBuilder {
     public OrderBuilder setDiscount(double discount){
         this.order.setDiscount(discount);
         return  this;
+    }
+
+    public OrderBuilder setUser(User user){
+        this.order.setUser(user);
+        return this;
     }
 
 }
