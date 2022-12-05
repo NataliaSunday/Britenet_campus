@@ -1,7 +1,9 @@
 package pl.britenet.campus_api.model.builder;
 
 import pl.britenet.campus_api.model.Category;
+import pl.britenet.campus_api.model.Order;
 import pl.britenet.campus_api.model.OrderProduct;
+import pl.britenet.campus_api.model.Product;
 
 public class OrderProductBuilder {
 
@@ -30,6 +32,14 @@ public class OrderProductBuilder {
     }
     public OrderProductBuilder setPrice(double price){
         this.orderProduct.setPrice(price);
+        return this;
+    }
+    public  OrderProductBuilder setOrder(Order order){
+        this.orderProduct.setOrder(order);
+        return this;
+    }
+    public OrderProductBuilder setProduct(Product product){
+        this.orderProduct.setProduct(product);
         return this;
     }
 }

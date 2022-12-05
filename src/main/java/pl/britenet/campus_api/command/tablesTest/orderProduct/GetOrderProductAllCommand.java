@@ -3,7 +3,10 @@ package pl.britenet.campus_api.command.tablesTest.orderProduct;
 import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
+import pl.britenet.campus_api.model.OrderProduct;
 import pl.britenet.campus_api.service.tableService.OrderProductService;
+
+import java.util.List;
 
 public class GetOrderProductAllCommand extends Command {
 
@@ -13,10 +16,9 @@ public class GetOrderProductAllCommand extends Command {
 
         DatabaseService databaseService = new DatabaseService();
         OrderProductService orderProductService = new OrderProductService(databaseService);
-        try {
-            System.out.println("Order: \n" + orderProductService.getOrderProductAll().toString());
-        } catch (Exception e) {
-            System.out.println("Error");
+        List<OrderProduct> orderProducts = orderProductService.getOrderProductAll();
+        for(OrderProduct orderProduct : orderProducts) {
+            System.out.println(orderProduct);
         }
     }
 }

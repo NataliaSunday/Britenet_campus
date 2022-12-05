@@ -6,16 +6,9 @@ public class OrderProduct {
     private int idOrder;
     private int howMany;
     private double price;
+    private Order order;
+    private Product product;
 
-    @Override
-    public String toString() {
-        return
-                "\nidOrderProduct=" + idOrderProduct +
-                "\nidProduct=" + idProduct +
-                "\nidOrder=" + idOrder +
-                "\nhowMany=" + howMany +
-                "\nprice=" + price + "\n";
-    }
 
     public int getIdOrderProduct() {
         return idOrderProduct;
@@ -56,4 +49,33 @@ public class OrderProduct {
     public void setPrice(double price) {
         this.price = price;
     }
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "\nidOrderProduct=" + idOrderProduct +
+                        "\nidProduct=" + idProduct +
+                        "\nidOrder=" + idOrder +
+                        "\nhowMany=" + howMany +
+                        "\nprice=" + price +
+                        "\norder=" + order +
+                        "\nproduct=" + product +
+                        "\n";
+    }
+
 }

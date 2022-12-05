@@ -7,7 +7,7 @@ import pl.britenet.campus_api.command.tablesTest.cartTest.*;
 import pl.britenet.campus_api.command.tablesTest.categoryTest.*;
 import pl.britenet.campus_api.command.tablesTest.opinionsTest.*;
 import pl.britenet.campus_api.command.tablesTest.orderProduct.*;
-import pl.britenet.campus_api.command.tablesTest.orderProductTest.*;
+import pl.britenet.campus_api.command.tablesTest.orderCartProductTest.*;
 import pl.britenet.campus_api.command.tablesTest.orderTest.*;
 import pl.britenet.campus_api.command.tablesTest.productTest.*;
 import pl.britenet.campus_api.command.tablesTest.userTest.*;

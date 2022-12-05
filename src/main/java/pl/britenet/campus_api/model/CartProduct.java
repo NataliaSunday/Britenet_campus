@@ -1,6 +1,18 @@
 package pl.britenet.campus_api.model;
 
 public class CartProduct {
+    private int idCartProduct;
+    private int idProduct;
+    private int idCart;
+    private int howMany;
+    private double price;
+
+    private Cart cart;
+
+
+    private Product product;
+
+    public CartProduct(){};
 
     public int getIdCartProduct() {
         return idCartProduct;
@@ -42,11 +54,23 @@ public class CartProduct {
         this.price = price;
     }
 
-    private int idCartProduct;
-    private int idProduct;
-    private int idCart;
-    private int howMany;
-    private double price;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
 
     @Override
     public String toString() {
@@ -56,8 +80,9 @@ public class CartProduct {
                 "\nidCart=" + idCart +
                 "\nhowMany=" + howMany +
                 "\nprice=" + price +
-                "\n";
+                "\ncart=" + cart +
+                 "\nproduct=" + product +"\n";
     }
 
-    public CartProduct(){};
+
 }

@@ -1,5 +1,6 @@
 package pl.britenet.campus_api.model.builder;
 
+import pl.britenet.campus_api.model.Cart;
 import pl.britenet.campus_api.model.CartProduct;
 import pl.britenet.campus_api.model.Product;
 
@@ -33,4 +34,13 @@ public class CartProductBuilder {
         this.cartProduct.setPrice(price);
         return this;
     }
+    public  CartProductBuilder setCart(Cart cart){
+        this.cartProduct.setCart(cart);
+        return  this;
+    }
+    public  CartProductBuilder setProduct(Product product){
+        this.cartProduct.setProduct(product);
+        return this;
+    }
+
 }

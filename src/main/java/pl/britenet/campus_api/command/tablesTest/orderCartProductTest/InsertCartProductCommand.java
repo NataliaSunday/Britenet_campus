@@ -1,4 +1,4 @@
-package pl.britenet.campus_api.command.tablesTest.orderProductTest;
+package pl.britenet.campus_api.command.tablesTest.orderCartProductTest;
 
 import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
