@@ -110,34 +110,9 @@ public class OrderService {
         this.databaseService.performDML(dml);
     }
 
-    public void updateOrder(int id, String col, String newContent) {
-
-        if (col.equalsIgnoreCase("country") || col.equalsIgnoreCase("city") ||
-                col.equalsIgnoreCase("home_number") || col.equalsIgnoreCase("zip_code") || col.equalsIgnoreCase("phone_number") ||
-                col.equalsIgnoreCase("e_mail") || col.equalsIgnoreCase("order_status")) {
-            String dml = String.format("UPDATE orders SET %S = '%S' WHERE id_order= %d", col, newContent, id);
-            this.databaseService.performDML(dml);
-        }
-        else if (col.equalsIgnoreCase("id_user")){
-            int parseNewContent = Integer.parseInt(newContent);
-            String dml = String.format("UPDATE orders SET %S = %d WHERE id_order= %d", col, parseNewContent, id);
-            this.databaseService.performDML(dml);
-        }
-        else if (col.equalsIgnoreCase("total_price") || col.equalsIgnoreCase("discount")){
-            double parseNewContent = Double.parseDouble(newContent);
-
-            String dml = String.format("UPDATE orders SET %S = %f WHERE id_order= %d", col, parseNewContent, id);
-            this.databaseService.performDML(dml);
-        }
-        else if (col.equalsIgnoreCase("isPaid")){
-            boolean parseNewContent = Boolean.parseBoolean(newContent);
-
-            String dml = String.format("UPDATE orders SET %S = %b WHERE id_order= %d", col, parseNewContent, id);
-            this.databaseService.performDML(dml);
-        }
-        else {
-           throw new NullPointerException();
-        }
+    public void updateOrder(Order order) {
+        String dml = String.format(Locale.US,"UPDATE orders SET id_user = %d, order_date = '%S', country='%S', city='%S', home_number = '%S', zip_code = '%S', phone_number ='%S', e_mail='%S',order_status ='%S', is_paid=%b, total_price=%f, discount=%f WHERE id_order= %d;",  order.getIdUser(),order.getOrderDate(), order.getCountry(), order.getCity(), order.getHomeNumber(), order.getZipCode(), order.getPhoneNumber(), order.geteMail(), order.getOrderStatus(), order.getIsPaid(),  order.getTotalPrice(), order.getDiscount() , order.getIdOrder());
+        this.databaseService.performDML(dml);
     }
 
     public void delOrders(int id) {

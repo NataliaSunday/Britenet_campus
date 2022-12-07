@@ -1,6 +1,7 @@
 package pl.britenet.campus_api.service.tableService;
 
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
+import pl.britenet.campus_api.model.CartProduct;
 import pl.britenet.campus_api.model.Order;
 import pl.britenet.campus_api.model.OrderProduct;
 import pl.britenet.campus_api.model.Product;
@@ -117,21 +118,9 @@ public class OrderProductService {
         this.databaseService.performDML(dml);
     }
 
-    public void updateOrderProduct(int id, String col, String newContent) {
-
-        if (col.equalsIgnoreCase("id_product") || col.equalsIgnoreCase("id_order") || col.equalsIgnoreCase("how_many")){
-            int parseNewContent = Integer.parseInt(newContent);
-            String dml = String.format("UPDATE order_product SET %S = %d WHERE id_order_product= %d", col, parseNewContent, id);
+    public void updateOrderProduct(OrderProduct orderProduct) {
+            String dml = String.format(Locale.US,"UPDATE order_product SET id_product = %d, id_order = %d, how_many = %d, price = %f WHERE id_order_product= %d;", orderProduct.getIdProduct(), orderProduct.getIdOrder(), orderProduct.getHowMany(), orderProduct.getPrice(), orderProduct.getIdOrderProduct());
             this.databaseService.performDML(dml);
-        }
-        else if ( col.equalsIgnoreCase("price")){
-            double parseNewContent = Double.parseDouble(newContent);
-            String dml = String.format("UPDATE  order_product  SET %S = %d WHERE id_order_product= %d", col, parseNewContent, id);
-            this.databaseService.performDML(dml);
-        }
-        else {
-            throw new NullPointerException();
-        }
     }
 
     public void delOrderProduct(int id) {

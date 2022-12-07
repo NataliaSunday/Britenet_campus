@@ -2,6 +2,7 @@ package pl.britenet.campus_api.service.tableService;
 
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.Cart;
+import pl.britenet.campus_api.model.Product;
 import pl.britenet.campus_api.model.User;
 import pl.britenet.campus_api.model.builder.CartBuilder;
 import pl.britenet.campus_api.model.builder.UserBuilder;
@@ -89,20 +90,10 @@ public class CartService {
         this.databaseService.performDML(dml);
     }
 
-    public void updateCart(int id, String col, String newContent) {
-        if(col.equalsIgnoreCase("id_user")){
-            int parseNewContent = Integer.parseInt(newContent);
-            String dml = String.format("UPDATE cart SET %S = %d WHERE id_cart = %d;", col,  parseNewContent, id);
+    public void updateCart(Cart cart) {
+            String dml = String.format(Locale.US,"UPDATE cart SET id_user = %d, discount = %f, total_price = %f WHERE id_cart= %d;", cart.getIdUser(), cart.getDiscount(), cart.getTotalPrice(), cart.getIdCart());
             this.databaseService.performDML(dml);
         }
-        else if(col.equalsIgnoreCase("discount") || col.equalsIgnoreCase("total_price")){
-            double parseNewContent = Double.parseDouble(newContent);
-            String dml = String.format(Locale.US, "UPDATE cart SET %S = %f WHERE id_cart = %d;", col,  parseNewContent, id);
-            this.databaseService.performDML(dml);
-        }else {
-            throw new NullPointerException();
-        }
-    }
 
     public void delCart(int id) {
         String dml = String.format("DELETE FROM cart WHERE id_cart=%d", id);

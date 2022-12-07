@@ -3,6 +3,7 @@ package pl.britenet.campus_api.command.tablesTest.categoryTest;
 import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
+import pl.britenet.campus_api.model.Category;
 import pl.britenet.campus_api.service.tableService.CategoryService;
 
 import java.util.InputMismatchException;
@@ -17,17 +18,21 @@ public class UpdateCategoryCommand extends Command {
         DatabaseService databaseService = new DatabaseService();
         CategoryService categoryService = new CategoryService(databaseService);
         Scanner scanner = new Scanner(System.in);
+        Category category = new Category();
 
         try {
             System.out.println("Category Id: ");
             int categoryId = scanner.nextInt();
-            System.out.println("New category name: ");
+            System.out.println("Category name: ");
             scanner.nextLine();
             String categoryName = scanner.nextLine();
-            System.out.println("New category description: ");
+            System.out.println("Category description: ");
             String categoryDesc = scanner.nextLine();
 
-            categoryService.updateCategory(categoryId, categoryName, categoryDesc);
+            category.setId(categoryId);
+            category.setName(categoryName);
+            category.setDescription(categoryDesc);
+            categoryService.updateCategory(category);
 
             System.out.println("Data updated");
 

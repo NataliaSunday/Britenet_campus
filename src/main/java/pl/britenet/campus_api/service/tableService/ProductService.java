@@ -86,23 +86,11 @@ public class ProductService {
         this.databaseService.performDML(dml);
     }
 
-    public void updateProduct(int id, String col, String newContent) {
-       if(col.equalsIgnoreCase("id_category") || col.equalsIgnoreCase("how_many")){
-           int parseNewContent = Integer.parseInt(newContent);
-           String dml = String.format("UPDATE product SET %S = '%d' WHERE id_product = '%d'", col,  parseNewContent, id);
-           this.databaseService.performDML(dml);
-       }
-       else if (col.equalsIgnoreCase("price")){
-            double parseNewContent = Double.parseDouble(newContent);
-            String dml = String.format(Locale.US, "UPDATE product SET %S = '%f' WHERE id_product = '%d'", col,  parseNewContent, id);
-            this.databaseService.performDML(dml);
-        }else if (col.equalsIgnoreCase("name") || col.equalsIgnoreCase("producer") || col.equalsIgnoreCase("description")) {
-           String dml = String.format(Locale.US, "UPDATE product SET %S = '%S' WHERE id_product = '%d'", col, newContent, id);
-           this.databaseService.performDML(dml);
-       }else {
-          throw new NullPointerException();
-       }
+    public void updateProduct(Product product) {
+        String dml = String.format(Locale.US,"UPDATE product SET id_category = %d, name = '%S', producer ='%S', description = '%S', price = %f, how_many = %d WHERE id_product= %d;", product.getIdCategory(), product.getName(), product.getProducer(), product.getDesc(), product.getPrice(), product.getHowMany(),product.getId());
+        this.databaseService.performDML(dml);
     }
+
 
     public void delProduct(int id) {
         String dml = String.format("DELETE FROM product WHERE id_product=%d", id);

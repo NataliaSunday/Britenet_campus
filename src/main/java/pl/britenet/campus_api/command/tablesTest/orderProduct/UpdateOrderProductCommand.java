@@ -3,6 +3,7 @@ package pl.britenet.campus_api.command.tablesTest.orderProduct;
 import pl.britenet.campus_api.command.Command;
 import pl.britenet.campus_api.command.Constants;
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
+import pl.britenet.campus_api.model.OrderProduct;
 import pl.britenet.campus_api.service.tableService.OrderProductService;
 
 import java.util.InputMismatchException;
@@ -18,22 +19,38 @@ public class UpdateOrderProductCommand extends Command {
         OrderProductService orderProductService = new OrderProductService(databaseService);
         Scanner scanner = new Scanner(System.in);
 
+        OrderProduct orderProduct = new OrderProduct();
+
+
         try {
-            System.out.println("Order product Id: ");
-            int orderProductId = scanner.nextInt();
-            System.out.println("Chose col: ");
-            scanner.nextLine();
-            String orderCol = scanner.nextLine();
-            System.out.println("New content: ");
-            String newContent = scanner.nextLine();
+            System.out.println("Id_order_product: ");
+            int idOrderProduct = scanner.nextInt();
 
-            orderProductService.updateOrderProduct(orderProductId, orderCol, newContent);
+            System.out.println("Id_product: ");
+            int idProductOrderProduct = scanner.nextInt();
 
-            System.out.println("Data updated");
-        } catch (NullPointerException e) {
-            System.out.println("Cart with this column or Id doesn't exist");
-        } catch (InputMismatchException e) {
+            System.out.println("Id_order: ");
+
+            int idOrderOrderProduct = scanner.nextInt();
+
+            System.out.println("How_many: ");
+            int howManyOrderProduct = scanner.nextInt();
+
+            System.out.println("Price ");
+            Double priceOrderProduct = scanner.nextDouble();
+
+            orderProduct.setIdOrderProduct(idOrderProduct);
+            orderProduct.setIdProduct(idProductOrderProduct);
+            orderProduct.setIdOrder(idOrderOrderProduct);
+            orderProduct.setHowMany(howManyOrderProduct);
+            orderProduct.setPrice(priceOrderProduct);
+            orderProductService.updateOrderProduct(orderProduct);
+
+            System.out.println("Product order updated");
+        }catch (InputMismatchException e) {
             System.out.println("Bad type of data");
+        } catch (IllegalStateException e) {
+            System.out.println("SQL Error");
         } catch (Exception e) {
             System.out.println("Error");
         }

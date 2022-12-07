@@ -58,8 +58,8 @@ public class CategoryService {
         this.databaseService.performDML(dml);
     }
 
-    public void updateCategory(int id, String name, String desc) {
-        String dml = String.format("UPDATE category SET name = '%S', description = '%S' WHERE id_category = '%d'", name, desc, id);
+    public void updateCategory(Category category) {
+        String dml = String.format("UPDATE category SET name = '%S', description = '%S' WHERE id_category = '%d'",category.getName(), category.getDescription(), category.getId());
         this.databaseService.performDML(dml);
     };
 

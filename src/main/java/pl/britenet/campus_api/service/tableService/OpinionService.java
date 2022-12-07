@@ -99,19 +99,10 @@ public class OpinionService {
         this.databaseService.performDML(dml);
     }
 
-    public void updateOpinion(int id, String col, String newContent) {
-        if(col.equalsIgnoreCase("id_product") || col.equalsIgnoreCase("id_user") || col.equalsIgnoreCase("rating")){
-            int parseNewContent = Integer.parseInt(newContent);
-            String dml = String.format("UPDATE opinion SET %S = '%d' WHERE id_opinion = '%d'", col,  parseNewContent, id);
-            this.databaseService.performDML(dml);
-        }
-        else if (col.equalsIgnoreCase("opinion_date") || col.equalsIgnoreCase("opinion_content") || col.equalsIgnoreCase("description")) {
-            String dml = String.format(Locale.US, "UPDATE opinion SET %S = '%S' WHERE id_opinion = '%d'", col, newContent, id);
-            this.databaseService.performDML(dml);
-        }else {
-            throw new NullPointerException();
-        }
-    }
+    public void updateOpinion(Opinion opinion) {
+        String dml = String.format("UPDATE opinion SET id_product = %d, id_user = %d, opinion_date = '%S', opinion_content = '%S', rating = %d WHERE id_opinion = '%d'", opinion.getIdProduct(), opinion.getIdUser(), opinion.getOpinionDate(), opinion.getOpinionContent(), opinion.getRating(), opinion.getIdOpinion() );
+        this.databaseService.performDML(dml);
+    };
 
     public void delOpinion(int id) {
         String dml = String.format("DELETE FROM opinion WHERE id_opinion=%d", id);

@@ -4,7 +4,6 @@ import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
 import pl.britenet.campus_api.model.Cart;
 import pl.britenet.campus_api.model.CartProduct;
 import pl.britenet.campus_api.model.Product;
-import pl.britenet.campus_api.model.User;
 import pl.britenet.campus_api.model.builder.CartBuilder;
 import pl.britenet.campus_api.model.builder.CartProductBuilder;
 import pl.britenet.campus_api.model.builder.ProductBuilder;
@@ -100,19 +99,11 @@ public class CartProductService {
         this.databaseService.performDML(dml);
     }
 
-    public void updateCartProduct(int id, String col, String newContent) {
-        if(col.equalsIgnoreCase("id_product") || col.equalsIgnoreCase("id_cart") ||  col.equalsIgnoreCase("how_many")){
-            int parseNewContent = Integer.parseInt(newContent);
-            String dml = String.format("UPDATE cart_product SET %S = '%d' WHERE id_product = '%d'", col,  parseNewContent, id);
+    public void updateCartProduct(CartProduct cartProduct) {
+
+            String dml = String.format(Locale.US,"UPDATE cart_product SET id_product = %d, id_cart = %d, how_many = %d, price = %f WHERE id_cart_product= %d;", cartProduct.getIdProduct(), cartProduct.getIdCart(), cartProduct.getHowMany(), cartProduct.getPrice(), cartProduct.getIdCartProduct());
             this.databaseService.performDML(dml);
-        }
-        else if (col.equalsIgnoreCase("price")){
-            double parseNewContent = Double.parseDouble(newContent);
-            String dml = String.format(Locale.US, "UPDATE cart_product SET %S = '%f' WHERE id_cart_product = '%d'", col,  parseNewContent, id);
-            this.databaseService.performDML(dml);
-        }else {
-            throw new NullPointerException();
-        }
+
     };
 
     public void delCartProduct(int id) {
