@@ -22,6 +22,7 @@ public class CategoryService {
                 List<Category> categoryList = new ArrayList<>();
                 while(resultSet.next()){
                     categoryList.add(new CategoryBuilder()
+                            .setId(resultSet.getInt("id_category"))
                             .setName(resultSet.getString("name"))
                             .setDescription(resultSet.getString("description")).getCategory());
 
@@ -40,8 +41,10 @@ public class CategoryService {
             try {
                 if(resultSet.next()) {
                     return new CategoryBuilder()
-                            .setName(resultSet.getString("name")).
-                            setDescription(resultSet.getString("description")).getCategory();
+                            .setId(resultSet.getInt("id_category"))
+                            .setName(resultSet.getString("name"))
+                            .setDescription(resultSet.getString("description"))
+                            .getCategory();
                 }
 
             }catch (SQLException e) {

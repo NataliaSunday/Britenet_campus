@@ -67,7 +67,7 @@ public class OrderProductService {
         });
     }
     public OrderProduct getOrderProductOne(int id){
-        String dql =String.format("SELECT op.id_order_product,op.id_product,op.id_order,op.how_many,op.price, o.id_order, o.id_user, o.order_date, o.country, o.city, o.home_number, o.zip_code, o.phone_number, o.e_mail, o.order_status, o.is_paid, o.total_price, o.discount,p.id_product,p.id_category,p.name,p.producer, p.description, p.price, p.how_many FROM order_product op INNER JOIN orders o ON op.id_order = o.id_order INNER JOIN product p ON op.id_product = p.id_product WHERE id_order_product=%d",id);
+        String dql =String.format("SELECT op.id_order_product,op.id_product,op.id_order,op.how_many,op.price, o.id_order, o.id_user, o.order_date, o.country, o.city, o.home_number, o.zip_code, o.phone_number, o.e_mail, o.order_status, o.is_paid, o.total_price, o.discount,p.id_product,p.id_category,p.name,p.producer, p.description, p.price, p.how_many FROM order_product op INNER JOIN orders o ON op.id_order = o.id_order INNER JOIN product p ON op.id_product = p.id_product WHERE op.id_order_product=%d;",id);
         return this.databaseService.performSQL(dql, resultSet -> {
             try {
                 if(resultSet.next()) {
@@ -95,12 +95,12 @@ public class OrderProductService {
                             .setTotalPrice(resultSet.getDouble("o.total_price"))
                             .setDiscount(resultSet.getDouble("o.discount"))
                             .getOrder();
-                    new OrderProductBuilder()
-                            .setIdOrderProduct(resultSet.getInt("id_order_product"))
-                            .setIdProduct(resultSet.getInt("id_product"))
-                            .setIdOrder(resultSet.getInt("id_order"))
-                            .setHowMany(resultSet.getInt("how_many"))
-                            .setPrice(resultSet.getDouble("price"))
+                  return new OrderProductBuilder()
+                            .setIdOrderProduct(resultSet.getInt("op.id_order_product"))
+                            .setIdProduct(resultSet.getInt("op.id_product"))
+                            .setIdOrder(resultSet.getInt("op.id_order"))
+                            .setHowMany(resultSet.getInt("op.how_many"))
+                            .setPrice(resultSet.getDouble("op.price"))
                             .setProduct(product)
                             .setOrder(order)
                             .getOrderProduct();

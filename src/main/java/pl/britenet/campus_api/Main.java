@@ -67,6 +67,7 @@ public class Main {
         commandService.registerCommand(new InsertUserCommand());
         commandService.registerCommand(new UpdateUserCommand());
         commandService.registerCommand(new DelUserCommand());
+        commandService.registerCommand(new GetUserCommand());
 
         commandService.registerCommand(new GetCartProductAllCommand());
         commandService.registerCommand(new GetCartProductOneCommand());

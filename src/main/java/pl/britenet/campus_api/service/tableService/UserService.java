@@ -24,7 +24,7 @@ public class UserService {
                             .setName(resultSet.getString("name"))
                             .setSurname(resultSet.getString("surname"))
                             .setPassword(resultSet.getString("user_password"))
-                            .setNickname(resultSet.getString("surname"))
+                            .setNickname(resultSet.getString("nickname"))
                             .setCountry(resultSet.getString("country"))
                             .setCity(resultSet.getString("city"))
                             .setHomeNumber(resultSet.getString("home_number"))
@@ -51,7 +51,7 @@ public class UserService {
                             .setName(resultSet.getString("name"))
                             .setSurname(resultSet.getString("surname"))
                             .setPassword(resultSet.getString("user_password"))
-                            .setNickname(resultSet.getString("surname"))
+                            .setNickname(resultSet.getString("nickname"))
                             .setCountry(resultSet.getString("country"))
                             .setCity(resultSet.getString("city"))
                             .setHomeNumber(resultSet.getString("home_number"))
@@ -90,6 +90,34 @@ public class UserService {
         String dml = String.format("DELETE FROM users WHERE id_user=%d", id);
         this.databaseService.performDML(dml);
     };
+
+    public User getUserAuth(String nickname, String password){
+        String dql =String.format("SELECT * FROM users WHERE nickname = '%S' and user_password = '%S';", nickname, password);
+        return this.databaseService.performSQL(dql, resultSet -> {
+            try {
+                if(resultSet.next()) {
+                    return new UserBuilder()
+                            .setIdUser(resultSet.getInt("id_user"))
+                            .setName(resultSet.getString("name"))
+                            .setSurname(resultSet.getString("surname"))
+                            .setPassword(resultSet.getString("user_password"))
+                            .setNickname(resultSet.getString("nickname"))
+                            .setCountry(resultSet.getString("country"))
+                            .setCity(resultSet.getString("city"))
+                            .setHomeNumber(resultSet.getString("home_number"))
+                            .setZipCode(resultSet.getString("zip_code"))
+                            .setPhoneNumber(resultSet.getString("phone_number"))
+                            .seteMail(resultSet.getString("e_mail"))
+                            .getUser();
+                }
+            }catch (SQLException e) {
+                throw  new IllegalStateException(e);
+            }
+            return null;
+        });
+
+    }
+
 }
 
 

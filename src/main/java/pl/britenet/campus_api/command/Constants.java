@@ -53,6 +53,7 @@ public class Constants {
     public  static  final String COMMAND_INSERT_USER = "insert_user";
     public static  final String COMMAND_UPDATE_USER = "update_user";
     public static  final String COMMAND_DEL_USER = "delete_user";
+    public static final String COMMAND_GET_USER = "get_user";
 
 
 
