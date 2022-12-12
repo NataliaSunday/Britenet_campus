@@ -39,15 +39,19 @@ public class InsertProductCommand extends Command {
             double productPrice = scanner.nextDouble();
 
             System.out.println("Product how many accessible: ");
-
             int productHowMany = scanner.nextInt();
 
+            System.out.println("Product image path: ");
+
+            scanner.nextLine();
+            String imagePath = scanner.nextLine();
             product.setIdCategory(productIdCategory);
             product.setName(productName);
             product.setProducer(productProducer);
             product.setDesc(productDescription);
             product.setPrice(productPrice);
             product.setHowMany(productHowMany);
+            product.setImagePath(imagePath);
 
             productService.insertProduct(product);
 

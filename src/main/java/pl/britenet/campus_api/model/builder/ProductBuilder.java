@@ -43,11 +43,15 @@ public class ProductBuilder {
         this.product.setHowMany(howMany);
         return this;
     }
-
+    public ProductBuilder setImagePath(String imagePath){
+        this.product.setImagePath(imagePath);
+        return this;
+    }
     public ProductBuilder setCategory(Category category){
         this.product.setCategory(category);
         return this;
     }
+
 
 
 }

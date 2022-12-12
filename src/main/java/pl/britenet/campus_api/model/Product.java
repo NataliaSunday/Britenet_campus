@@ -10,6 +10,10 @@ public class Product {
     private String producer;
     private int howMany;
 
+
+
+    private String imagePath;
+
     private Category category;
 
     public Product(){}
@@ -64,7 +68,13 @@ public class Product {
     public void setIdCategory(int idCategory) {
         this.idCategory = idCategory;
     }
+    public String getImagePath() {
+        return imagePath;
+    }
 
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
     public Category getCategory() {
         return category;
     }
@@ -83,7 +93,8 @@ public class Product {
                 "\nprice=" + price +
                 "\ndesc='" + desc +
                 "\nproducer='" + producer +
-                "\nhowMany=" + howMany + "\n" ;
+                "\nhowMany=" + howMany +
+                "\nimagePath=" + imagePath + "\n";
     }
 
 }

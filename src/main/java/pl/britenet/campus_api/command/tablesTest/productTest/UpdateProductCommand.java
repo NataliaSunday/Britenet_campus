@@ -42,6 +42,10 @@ public class UpdateProductCommand extends Command {
             System.out.println("Product how many accessible: ");
 
             int productHowMany = scanner.nextInt();
+            System.out.println("Product image path: ");
+
+            scanner.nextLine();
+            String imagePath = scanner.nextLine();
 
             product.setId(productId);
             product.setIdCategory(productIdCategory);
@@ -50,6 +54,7 @@ public class UpdateProductCommand extends Command {
             product.setDesc(productDescription);
             product.setPrice(productPrice);
             product.setHowMany(productHowMany);
+            product.setImagePath(imagePath);
 
             productService.updateProduct(product);
 

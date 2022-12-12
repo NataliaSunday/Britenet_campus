@@ -18,7 +18,7 @@ public class ProductService {
     public ProductService(DatabaseService databaseService) { this.databaseService = databaseService; }
 
     public List<Product> getProductAll() {
-        String dql = String.format("SELECT p.id_product,p.id_category,p.name,p.producer,p.description,p.price, p.how_many, c.id_category, c.name, c.description FROM product p  INNER JOIN category c ON c.id_category = p.id_category;");
+        String dql = String.format("SELECT p.id_product,p.id_category,p.name,p.producer,p.description,p.price, p.how_many, p.imagePath, c.id_category, c.name, c.description FROM product p  INNER JOIN category c ON c.id_category = p.id_category;");
         return this.databaseService.performSQL(dql, resultSet -> {
             try {
                 List<Product> productsList = new ArrayList<>();
@@ -37,6 +37,7 @@ public class ProductService {
                             .setDesc(resultSet.getString("p.description"))
                             .setPrice(resultSet.getDouble("p.price"))
                             .setHowMany(resultSet.getInt("p.how_many"))
+                            .setImagePath(resultSet.getString("p.imagePath"))
                             .setCategory(category)
                             .getProduct());
                 }
@@ -50,7 +51,7 @@ public class ProductService {
     }
 
     public Product getProductOne(int id) {
-        String dql = String.format("SELECT p.id_product,p.id_category,p.name,p.producer,p.description,p.price, p.how_many, c.id_category, c.name, c.description FROM product p  INNER JOIN category c ON c.id_category = p.id_category where p.id_product = %d", id);
+        String dql = String.format("SELECT p.id_product,p.id_category,p.name,p.producer,p.description,p.price, p.how_many, p.imagePath, c.id_category, c.name, c.description FROM product p  INNER JOIN category c ON c.id_category = p.id_category where p.id_product = %d", id);
         return this.databaseService.performSQL(dql, resultSet -> {
             try {
                 if(resultSet.next()) {
@@ -69,6 +70,7 @@ public class ProductService {
                             .setDesc(resultSet.getString("p.description"))
                             .setPrice(resultSet.getDouble("p.price"))
                             .setHowMany(resultSet.getInt("p.how_many"))
+                            .setImagePath(resultSet.getString("p.imagePath"))
                             .setCategory(category)
                             .getProduct();
                 }
@@ -81,13 +83,13 @@ public class ProductService {
     }
 
     public void insertProduct(Product product) {
-        String dml = String.format(Locale.US, "INSERT INTO product (id_category, name, producer, description, price, how_many) VALUES ('%d','%S','%S','%S','%f','%d');",
-                product.getIdCategory(), product.getName(), product.getProducer(), product.getDesc(),  product.getPrice(), product.getHowMany());
+        String dml = String.format(Locale.US, "INSERT INTO product (id_category, name, producer, description, price, how_many, imagePath) VALUES ('%d','%S','%S','%S','%f','%d', '%S');",
+                product.getIdCategory(), product.getName(), product.getProducer(), product.getDesc(),  product.getPrice(), product.getHowMany(), product.getImagePath());
         this.databaseService.performDML(dml);
     }
 
     public void updateProduct(Product product) {
-        String dml = String.format(Locale.US,"UPDATE product SET id_category = %d, name = '%S', producer ='%S', description = '%S', price = %f, how_many = %d WHERE id_product= %d;", product.getIdCategory(), product.getName(), product.getProducer(), product.getDesc(), product.getPrice(), product.getHowMany(),product.getId());
+        String dml = String.format(Locale.US,"UPDATE product SET id_category = %d, name = '%S', producer ='%S', description = '%S', price = %f, how_many = %d, imagePath = '%S' WHERE id_product= %d;", product.getIdCategory(), product.getName(), product.getProducer(), product.getDesc(), product.getPrice(), product.getHowMany(),product.getImagePath(),product.getId());
         this.databaseService.performDML(dml);
     }
 
