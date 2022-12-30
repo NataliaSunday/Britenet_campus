@@ -99,6 +99,73 @@ public class ProductService {
         this.databaseService.performDML(dml);
     };
 
+    public List<Product> getProductByCategory(int idCategory) {
+        String dql = String.format("SELECT p.id_product,p.id_category,p.name,p.producer,p.description,p.price, p.how_many, p.imagePath, c.id_category, c.name, c.description FROM product p  INNER JOIN category c ON c.id_category = p.id_category WHERE c.id_category = %d;", idCategory);
+        return this.databaseService.performSQL(dql, resultSet -> {
+            try {
+                List<Product> productsList = new ArrayList<>();
+                while(resultSet.next()) {
+                    Category category = new CategoryBuilder()
+                            .setId(resultSet.getInt("c.id_category"))
+                            .setName(resultSet.getString("c.name"))
+                            .setDescription(resultSet.getString("c.description"))
+                            .getCategory();
+                    productsList.add(
+                            new ProductBuilder()
+                                    .setId(resultSet.getInt("p.id_product"))
+                                    .setIdCategory(resultSet.getInt("p.id_category"))
+                                    .setName(resultSet.getString("p.name"))
+                                    .setProducer(resultSet.getString("p.producer"))
+                                    .setDesc(resultSet.getString("p.description"))
+                                    .setPrice(resultSet.getDouble("p.price"))
+                                    .setHowMany(resultSet.getInt("p.how_many"))
+                                    .setImagePath(resultSet.getString("p.imagePath"))
+                                    .setCategory(category)
+                                    .getProduct());
+                }
+                return productsList;
+            }catch (SQLException e) {
+                throw  new IllegalStateException();
+            }
+
+
+        });
+    }
+    public List<Product> getProductWhere(String name) {
+        name = "%" + name + "%";
+        String dql = String.format("SELECT p.id_product,p.id_category,p.name,p.producer,p.description,p.price, p.how_many,  p.imagePath, c.id_category, c.name, c.description FROM product p  INNER JOIN category c ON c.id_category = p.id_category WHERE p.name LIKE '%S';", name);
+        return this.databaseService.performSQL(dql, resultSet -> {
+            try {
+                List<Product> productsList = new ArrayList<>();
+                while(resultSet.next()) {
+                    Category category = new CategoryBuilder()
+                            .setId(resultSet.getInt("c.id_category"))
+                            .setName(resultSet.getString("c.name"))
+                            .setDescription(resultSet.getString("c.description"))
+                            .getCategory();
+                    productsList.add(
+                            new ProductBuilder()
+                                    .setId(resultSet.getInt("p.id_product"))
+                                    .setIdCategory(resultSet.getInt("p.id_category"))
+                                    .setName(resultSet.getString("p.name"))
+                                    .setProducer(resultSet.getString("p.producer"))
+                                    .setDesc(resultSet.getString("p.description"))
+                                    .setPrice(resultSet.getDouble("p.price"))
+                                    .setHowMany(resultSet.getInt("p.how_many"))
+                                    .setImagePath(resultSet.getString("p.imagePath"))
+                                    .setCategory(category)
+                                    .getProduct());
+                }
+                return productsList;
+            }catch (SQLException e) {
+                throw  new IllegalStateException();
+            }
+
+
+        });
+    }
+
+
 }
 
 

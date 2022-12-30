@@ -94,13 +94,14 @@ public class OpinionService {
     }
 
     public void insertOpinion(Opinion opinion) {
-        String dml = String.format( "INSERT INTO opinion (id_product, id_user, opinion_date, opinion_content, rating) VALUES ('%d','%d','%S','%S','%d');",
+        String dml = String.format( "INSERT INTO opinion (id_product, id_user, opinion_date, opinion_content, rating) VALUES ('%d','%d','%s','%s','%d');",
                 opinion.getIdProduct(), opinion.getIdUser(), opinion.getOpinionDate(), opinion.getOpinionContent(), opinion.getRating());
+        System.out.println( opinion.getOpinionContent());
         this.databaseService.performDML(dml);
     }
 
     public void updateOpinion(Opinion opinion) {
-        String dml = String.format("UPDATE opinion SET id_product = %d, id_user = %d, opinion_date = '%S', opinion_content = '%S', rating = %d WHERE id_opinion = '%d'", opinion.getIdProduct(), opinion.getIdUser(), opinion.getOpinionDate(), opinion.getOpinionContent(), opinion.getRating(), opinion.getIdOpinion() );
+        String dml = String.format("UPDATE opinion SET id_product = %d, id_user = %d, opinion_date = '%s', opinion_content = '%s', rating = %d WHERE id_opinion = '%d'", opinion.getIdProduct(), opinion.getIdUser(), opinion.getOpinionDate(), opinion.getOpinionContent(), opinion.getRating(), opinion.getIdOpinion() );
         this.databaseService.performDML(dml);
     };
 
@@ -108,4 +109,46 @@ public class OpinionService {
         String dml = String.format("DELETE FROM opinion WHERE id_opinion=%d", id);
         this.databaseService.performDML(dml);
     };
+
+
+    public List<Opinion> getOpinionsByProd (int prodId) {
+        String dql = String.format("SELECT o.id_opinion, o.id_product, o.id_user, o.opinion_date, o.opinion_content, o.rating, u.id_user, u.name, u.surname, u.user_password, u.nickname, u.country, u.city, u.home_number, u.zip_code, u.phone_number, u.e_mail  FROM opinion o INNER JOIN users u ON o.id_user = u.id_user WHERE o.id_product = %d", prodId);
+        return this.databaseService.performSQL(dql, resultSet -> {
+            try {
+                List<Opinion> opinionList = new ArrayList<>();
+                while (resultSet.next()) {
+                    User user = new UserBuilder()
+                            .setIdUser(resultSet.getInt("u.id_user"))
+                            .setName(resultSet.getString("u.name"))
+                            .setSurname(resultSet.getString("u.surname"))
+                            .setPassword(resultSet.getString("u.user_password"))
+                            .setNickname(resultSet.getString("u.surname"))
+                            .setCountry(resultSet.getString("u.country"))
+                            .setCity(resultSet.getString("u.city"))
+                            .setHomeNumber(resultSet.getString("u.home_number"))
+                            .setZipCode(resultSet.getString("u.zip_code"))
+                            .setPhoneNumber(resultSet.getString("u.phone_number"))
+                            .seteMail(resultSet.getString("u.e_mail"))
+                            .getUser();
+                    opinionList.add(new OpinionBuilder()
+                            .setIdOpinion(resultSet.getInt("o.id_opinion"))
+                            .setIdProduct(resultSet.getInt("o.id_product"))
+                            .setIdUser(resultSet.getInt("o.id_user"))
+                            .setOpinionDate(resultSet.getString("o.opinion_date"))
+                            .setOpinionContent(resultSet.getString("o.opinion_content"))
+                            .setRating(resultSet.getInt("o.rating"))
+                            .setUser(user)
+                            .getOpinion());
+
+                }
+                return opinionList;
+            } catch (SQLException e) {
+                throw new IllegalStateException(e);
+            }
+
+        });
+    }
+
 }
+
+

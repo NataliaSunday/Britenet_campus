@@ -100,5 +100,40 @@ public class CartService {
         this.databaseService.performDML(dml);
     };
 
+
+    public Cart getCartUser(int id){
+        String dql = String.format("SELECT c.id_cart, c.id_user, c.discount, c.total_price,  u.id_user, u.name, u.surname, u.user_password, u.nickname, u.country, u.city, u.home_number, u.zip_code, u.phone_number, u.e_mail FROM cart c INNER JOIN users u ON u.id_user = c.id_user WHERE c.id_user=%d;", id);
+
+        return this.databaseService.performSQL(dql, resultSet -> {
+            try {
+                if(resultSet.next()){
+                    User user = new UserBuilder()
+                            .setIdUser(resultSet.getInt("u.id_user"))
+                            .setName(resultSet.getString("u.name"))
+                            .setSurname(resultSet.getString("u.surname"))
+                            .setPassword(resultSet.getString("u.user_password"))
+                            .setNickname(resultSet.getString("u.surname"))
+                            .setCountry(resultSet.getString("u.country"))
+                            .setCity(resultSet.getString("u.city"))
+                            .setHomeNumber(resultSet.getString("u.home_number"))
+                            .setZipCode(resultSet.getString("u.zip_code"))
+                            .setPhoneNumber(resultSet.getString("u.phone_number"))
+                            .seteMail(resultSet.getString("u.e_mail"))
+                            .getUser();
+                    return new CartBuilder()
+                            .setIdCart(resultSet.getInt("c.id_cart"))
+                            .setIdUser(resultSet.getInt("c.id_user"))
+                            .setDiscount(resultSet.getDouble("c.discount"))
+                            .setTotalPrice(resultSet.getDouble("c.total_price"))
+                            .setUser(user)
+                            .getCart();
+                }
+            }catch (SQLException e) {
+                throw new IllegalStateException(e);
+            }
+            return  null;
+        });
+    }
+
 }
 

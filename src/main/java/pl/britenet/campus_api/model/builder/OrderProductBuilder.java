@@ -27,7 +27,7 @@ public class OrderProductBuilder {
         return this;
     }
     public OrderProductBuilder setHowMany(int howMany){
-        this.orderProduct.setIdProduct(howMany);
+        this.orderProduct.setHowMany(howMany);
         return this;
     }
     public OrderProductBuilder setPrice(double price){
