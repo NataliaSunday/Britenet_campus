@@ -106,12 +106,12 @@ public class OrderService {
     }
 
     public void insertOrder(Order order){
-        String dml = String.format(Locale.US, "INSERT INTO orders(id_user,order_date, country, city, home_number, zip_code, phone_number, e_mail, order_status, is_paid, total_price, discount) VALUES ( %d, '%S', '%S', '%S', '%S', '%S', '%S','%S', '%S',%b, %f, %f);", order.getIdUser(),order.getOrderDate(), order.getCountry(), order.getCity(), order.getHomeNumber(), order.getZipCode(), order.getPhoneNumber(), order.geteMail(), order.getOrderStatus(), order.getIsPaid(),  order.getTotalPrice(), order.getDiscount());
+        String dml = String.format(Locale.US, "INSERT INTO orders(id_user,order_date, country, city, home_number, zip_code, phone_number, e_mail, order_status, is_paid, total_price, discount) VALUES ( %d, '%s', '%s', '%s', '%s','%s', '%s','%s', '%s',%b, %f, %f);", order.getIdUser(),order.getOrderDate(), order.getCountry(), order.getCity(), order.getHomeNumber(), order.getZipCode(), order.getPhoneNumber(), order.geteMail(), order.getOrderStatus(), order.getIsPaid(),  order.getTotalPrice(), order.getDiscount());
         this.databaseService.performDML(dml);
     }
 
     public void updateOrder(Order order) {
-        String dml = String.format(Locale.US,"UPDATE orders SET id_user = %d, order_date = '%S', country='%S', city='%S', home_number = '%S', zip_code = '%S', phone_number ='%S', e_mail='%S',order_status ='%S', is_paid=%b, total_price=%f, discount=%f WHERE id_order= %d;",  order.getIdUser(),order.getOrderDate(), order.getCountry(), order.getCity(), order.getHomeNumber(), order.getZipCode(), order.getPhoneNumber(), order.geteMail(), order.getOrderStatus(), order.getIsPaid(),  order.getTotalPrice(), order.getDiscount() , order.getIdOrder());
+        String dml = String.format(Locale.US,"UPDATE orders SET id_user = %d, order_date = '%s', country='%s'', city='%s', home_number = '%s', zip_code = '%s', phone_number ='%s', e_mail='%s',order_status ='%s', is_paid=%b, total_price=%f, discount=%f WHERE id_order= %d;",  order.getIdUser(),order.getOrderDate(), order.getCountry(), order.getCity(), order.getHomeNumber(), order.getZipCode(), order.getPhoneNumber(), order.geteMail(), order.getOrderStatus(), order.getIsPaid(),  order.getTotalPrice(), order.getDiscount() , order.getIdOrder());
         this.databaseService.performDML(dml);
     }
 

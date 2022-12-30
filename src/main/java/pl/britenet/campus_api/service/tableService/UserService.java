@@ -1,8 +1,6 @@
 package pl.britenet.campus_api.service.tableService;
 
 import pl.britenet.campus_api.database.DatabaseService.DatabaseService;
-import pl.britenet.campus_api.model.CartProduct;
-import pl.britenet.campus_api.model.Product;
 import pl.britenet.campus_api.model.User;
 import pl.britenet.campus_api.model.builder.UserBuilder;
 
@@ -71,11 +69,11 @@ public class UserService {
     }
 
     public void insertUser(User user){
-        String dml = String.format("INSERT INTO users (name, surname, user_password, nickname, country, city, home_number, zip_code, phone_number, e_mail) VALUES ( '%S', '%S', '%S', '%S', '%S', '%S', '%S', '%S', '%S', '%S');", user.getName(), user.getSurname(), user.getPassword(), user.getNickname(), user.getCountry(), user.getCity(), user.getHomeNumber(), user.getZipCode(), user.getPhoneNumber(), user.geteMail());
+        String dml = String.format("INSERT INTO users (name, surname, user_password, nickname, country, city, home_number, zip_code, phone_number, e_mail) VALUES ( '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');", user.getName(), user.getSurname(), user.getPassword(), user.getNickname(), user.getCountry(), user.getCity(), user.getHomeNumber(), user.getZipCode(), user.getPhoneNumber(), user.geteMail());
         this.databaseService.performDML(dml);
     }
     public void updateUser(User user) {
-        String dml = String.format(Locale.US,"UPDATE users SET  name = '%S', surname ='%S', user_password = '%S', nickname= '%S', country='%S', city='%S', home_number = '%S', zip_code = '%S', phone_number ='%S', e_mail='%S' WHERE id_user= %d;", user.getName(), user.getSurname(), user.getPassword(), user.getNickname(),user.getCountry(), user.getCity(), user.getHomeNumber(), user.getZipCode(), user.getPhoneNumber(), user.geteMail(), user.getIdUser());
+        String dml = String.format(Locale.US,"UPDATE users SET  name = '%s', surname ='%s', user_password = '%s', nickname= '%s', country='%s', city='%s', home_number = '%s', zip_code = '%s', phone_number ='%s', e_mail='%s' WHERE id_user= %d;", user.getName(), user.getSurname(), user.getPassword(), user.getNickname(),user.getCountry(), user.getCity(), user.getHomeNumber(), user.getZipCode(), user.getPhoneNumber(), user.geteMail(), user.getIdUser());
         this.databaseService.performDML(dml);
     }
 
@@ -86,7 +84,7 @@ public class UserService {
     };
 
     public User getUserAuth(String nickname, String password){
-        String dql =String.format("SELECT * FROM users WHERE nickname = '%S' and user_password = '%S';", nickname, password);
+        String dql =String.format("SELECT * FROM users WHERE nickname = '%s' and user_password = '%s';", nickname, password);
         return this.databaseService.performSQL(dql, resultSet -> {
             try {
                 if(resultSet.next()) {

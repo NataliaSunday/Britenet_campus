@@ -83,13 +83,13 @@ public class ProductService {
     }
 
     public void insertProduct(Product product) {
-        String dml = String.format(Locale.US, "INSERT INTO product (id_category, name, producer, description, price, how_many, imagePath) VALUES ('%d','%S','%S','%S','%f','%d', '%S');",
+        String dml = String.format(Locale.US, "INSERT INTO product (id_category, name, producer, description, price, how_many, imagePath) VALUES ('%d','%s','%s','%s','%f','%d', '%S');",
                 product.getIdCategory(), product.getName(), product.getProducer(), product.getDesc(),  product.getPrice(), product.getHowMany(), product.getImagePath());
         this.databaseService.performDML(dml);
     }
 
     public void updateProduct(Product product) {
-        String dml = String.format(Locale.US,"UPDATE product SET id_category = %d, name = '%S', producer ='%S', description = '%S', price = %f, how_many = %d, imagePath = '%S' WHERE id_product= %d;", product.getIdCategory(), product.getName(), product.getProducer(), product.getDesc(), product.getPrice(), product.getHowMany(),product.getImagePath(),product.getId());
+        String dml = String.format(Locale.US,"UPDATE product SET id_category = %d, name = '%s', producer ='%s', description = '%S', price = %f, how_many = %d, imagePath = '%S' WHERE id_product= %d;", product.getIdCategory(), product.getName(), product.getProducer(), product.getDesc(), product.getPrice(), product.getHowMany(),product.getImagePath(),product.getId());
         this.databaseService.performDML(dml);
     }
 

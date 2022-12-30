@@ -54,12 +54,12 @@ public class CategoryService {
         });
     };
     public void insertCategory(Category category) {
-        String dml = String.format("INSERT INTO category (name, description) VALUES ('%S', '%S')", category.getName(), category.getDescription());
+        String dml = String.format("INSERT INTO category (name, description) VALUES ('%s', '%s')", category.getName(), category.getDescription());
         this.databaseService.performDML(dml);
     }
 
     public void updateCategory(Category category) {
-        String dml = String.format("UPDATE category SET name = '%S', description = '%S' WHERE id_category = '%d'",category.getName(), category.getDescription(), category.getId());
+        String dml = String.format("UPDATE category SET name = '%s', description = '%s' WHERE id_category = '%d'",category.getName(), category.getDescription(), category.getId());
         this.databaseService.performDML(dml);
     };
 
